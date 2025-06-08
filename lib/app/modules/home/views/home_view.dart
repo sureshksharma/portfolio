@@ -124,6 +124,7 @@ class HomeView extends GetView<HomeController> {
           ),
           SizedBox(height: SizeConfig.defaultSize),
           MarqueeList(
+            scrollDuration: const Duration(milliseconds: 2000),
             children: [
               Padding(
                 padding: EdgeInsets.only(right: SizeConfig.defaultSize),

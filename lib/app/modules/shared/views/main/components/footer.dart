@@ -252,7 +252,7 @@ class Footer extends GetView<MenuController> {
                       ),
                     ),
                   ),
-                  SizedBox(width: SizeConfig.defaultSize),
+                  SizedBox(width: kDefaultPadding / 2),
                   InkWell(
                     onTap: () {},
                     onHover: (value) {
@@ -270,7 +270,7 @@ class Footer extends GetView<MenuController> {
                       ),
                     ),
                   ),
-                  SizedBox(width: SizeConfig.defaultSize),
+                  SizedBox(width: kDefaultPadding / 2),
                   InkWell(
                     onTap: () {},
                     onHover: (value) {

@@ -96,7 +96,7 @@ class UserNetworkAvatar extends StatelessWidget {
                 height: height,
                 width: width,
                 child: Icon(
-                  Icons.person_3,
+                  Icons.person,
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
@@ -107,7 +107,7 @@ class UserNetworkAvatar extends StatelessWidget {
                 height: height,
                 width: width,
                 child: Icon(
-                  Icons.person_3,
+                  Icons.person,
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
@@ -118,7 +118,7 @@ class UserNetworkAvatar extends StatelessWidget {
               height: height,
               width: width,
               child: Icon(
-                Icons.person_3,
+                Icons.person,
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
             ),

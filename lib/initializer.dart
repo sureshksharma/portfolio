@@ -6,12 +6,11 @@ import 'package:get_storage/get_storage.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:logger/logger.dart';
 
-
 import 'app/data/constants/network.contants.dart';
-import 'app/data/constants/storage.constants.dart';
 import 'app/data/interfaces/storage.interface.dart';
 import 'app/data/storage.dart';
 import 'app/domain/auth/models/user.model.dart';
+import 'app/modules/shared/controllers/admin_main.controller.dart';
 import 'app/modules/shared/controllers/loading_controller.dart';
 import 'app/modules/shared/controllers/menu_controller.dart';
 import 'app/routes/app_pages.dart';
@@ -52,6 +51,9 @@ class Initializer {
     // Initialize MenuController globally
     final menuController = MenuController();
     Get.put(menuController);
+    // Initialize AdminMainController globally
+    final adminMainController = AdminMainController();
+    Get.put(adminMainController);
   }
 
   static Future<void> _initStorage() async {
@@ -84,17 +86,10 @@ class Initializer {
       (request) async {
         Logger().d('REQUEST_URL: ${request.url}');
         UserModel? user = UserModel.fromStorage();
-        String? ipAddress = await Get.find<NetworkUtil>().ipAddress;
-        String? deviceId = Get.find<IStorage>().read(StorageConstants.deviceId);
         if (user != null) {
           Logger().d('TOKEN: ${user.token}');
           Logger().d('USER_ID: ${user.id}');
-          request.headers['user_id'] = user.id ?? '';
           request.headers['token'] = user.token ?? '';
-          request.headers['ip_address'] = ipAddress ?? '';
-          request.headers['device_id'] = deviceId ?? '';
-          request.headers['latitude'] = '';
-          request.headers['longitude'] = '';
           Logger().d('REQUEST_HEADERS: ${request.headers}');
         }
 

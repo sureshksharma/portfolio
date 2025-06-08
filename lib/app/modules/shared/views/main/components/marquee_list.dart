@@ -59,10 +59,18 @@ class _MarqueeListState extends State<MarqueeList> {
   late final _scrollController = ScrollController();
   late Timer _timer;
   double _scrollPosition = 0.0;
+  final int _numberOfCopies = 3;
+  late List<Widget> _children;
 
   @override
   void initState() {
     super.initState();
+    // Create a longer list of images by repeating the original list
+    _children = List.generate(
+      widget.children.length * _numberOfCopies,
+      (index) => widget.children[index % widget.children.length],
+    );
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final size = _itemSize;
       _timer = Timer.periodic(widget.scrollDuration, (_) {
@@ -79,7 +87,8 @@ class _MarqueeListState extends State<MarqueeList> {
   }
 
   bool _isScrollAvailable(double size) =>
-      _scrollPosition < size * widget.children.length;
+      _scrollPosition <
+      size * widget.children.length * (_numberOfCopies - 1) - 5;
 
   bool get _isScrollRemain =>
       _scrollPosition < _scrollController.position.maxScrollExtent;
@@ -101,7 +110,7 @@ class _MarqueeListState extends State<MarqueeList> {
     _scrollPosition = 0.0;
     _scrollController.animateTo(
       _scrollPosition,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(seconds: 2),
       curve: Curves.linear,
     );
   }
@@ -115,8 +124,8 @@ class _MarqueeListState extends State<MarqueeList> {
       scrollDirection: _scrollDirection,
       controller: _scrollController,
       child: switch (_scrollDirection) {
-        Axis.horizontal => Row(children: widget.children),
-        Axis.vertical => Column(children: widget.children),
+        Axis.horizontal => Row(children: _children),
+        Axis.vertical => Column(children: _children),
       },
     );
   }

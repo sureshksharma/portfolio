@@ -9,13 +9,13 @@ class LoadingWidget extends GetWidget<LoadingController> {
   Widget build(BuildContext context) {
     return Obx(
       () => controller.isLoading
-          ? IgnorePointer(
+          ? AbsorbPointer(
               child: Stack(
                 fit: StackFit.expand,
                 children: <Widget>[
                   ModalBarrier(
                     dismissible: false,
-                    color: Get.theme.colorScheme.outline.withAlpha(100),
+                    color: Get.theme.colorScheme.outlineVariant.withAlpha(100),
                   ),
                   Center(
                     child: CircularProgressIndicator(

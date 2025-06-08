@@ -8,19 +8,12 @@ import 'theme/theme.dart';
 
 Future<void> main() async {
   await Initializer.init();
-  runApp(MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return GetMaterialApp.router(
+  runApp(
+    GetMaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: "CabService",
-      theme: MaterialTheme().toThemeData(Brightness.light),
-      darkTheme: MaterialTheme().toThemeData(Brightness.dark),
+      theme: MaterialTheme.lightThemeData(),
+      darkTheme: MaterialTheme.darkThemeData(),
       themeMode: ThemeMode.system,
       routeInformationParser: GetInformationParser(
         initialRoute: AppPages.INITIAL,
@@ -30,6 +23,6 @@ class MainApp extends StatelessWidget {
         notFoundRoute: AppPages.UNKNOWN,
       ),
       getPages: AppPages.routes,
-    );
-  }
+    ),
+  );
 }

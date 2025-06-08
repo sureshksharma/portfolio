@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../theme/theme.dart';
+
 class SnackbarUtil {
   static void showSuccess({required String message}) {
     Get.rawSnackbar(
       title: 'Success',
       icon: Icon(
         Icons.thumb_up,
-        color: Get.theme.colorScheme.secondary,
+        color: MaterialTheme.colorGreen,
       ),
       message: message,
-      backgroundColor: Get.theme.colorScheme.secondary.withAlpha(153),
-      borderRadius: 20,
+      backgroundColor: MaterialTheme.colorGreen.withAlpha(153),
+      borderRadius: 10,
+      maxWidth: 500,
+      duration: const Duration(seconds: 1),
+      animationDuration: const Duration(milliseconds: 300),
       margin: EdgeInsets.all(10),
       snackStyle: SnackStyle.FLOATING,
       snackPosition: SnackPosition.BOTTOM,
@@ -24,7 +29,10 @@ class SnackbarUtil {
       icon: Icon(Icons.warning, color: Colors.amber),
       message: message,
       backgroundColor: Colors.amberAccent[200]!,
-      borderRadius: 20,
+      borderRadius: 10,
+      maxWidth: 500,
+      duration: const Duration(seconds: 1),
+      animationDuration: const Duration(milliseconds: 300),
       margin: EdgeInsets.all(10),
       snackStyle: SnackStyle.FLOATING,
       snackPosition: SnackPosition.BOTTOM,
@@ -40,7 +48,10 @@ class SnackbarUtil {
       ),
       message: message,
       backgroundColor: Get.theme.colorScheme.error.withAlpha(153),
-      borderRadius: 20,
+      borderRadius: 10,
+      maxWidth: 500,
+      duration: const Duration(seconds: 1),
+      animationDuration: const Duration(milliseconds: 300),
       margin: EdgeInsets.all(10),
       snackStyle: SnackStyle.FLOATING,
       snackPosition: SnackPosition.BOTTOM,

@@ -1,222 +1,119 @@
 import 'package:flutter/material.dart';
-import 'package:material_color_utilities/material_color_utilities.dart';
 
-@immutable
-class MaterialTheme extends ThemeExtension<MaterialTheme> {
-  const MaterialTheme({
-    this.primaryColor = const Color(0xFFEA2129),
-    this.secondaryColor = const Color.fromARGB(255, 255, 213, 0),
-    this.tertiaryColor = const Color(0xFF28CC4C),
-    this.neutralColor = const Color(0xFF9C9797),
-    this.neutralVariantColor = const Color.fromARGB(255, 229, 227, 227),
-  });
+class MaterialTheme {
+  // Extended colors
+  static Color colorGreen = Colors.green[700]!;
+  static Color colorBlue = Color(0xFF3b82f6);
+  static Color colorYellow = Color(0xFFfacc15);
 
-  final Color primaryColor;
-  final Color secondaryColor;
-  final Color tertiaryColor;
-  final Color neutralColor;
-  final Color neutralVariantColor;
-
-  DynamicScheme _scheme() {
-    final primary = TonalPalette.fromHct(Hct.fromInt(primaryColor.value));
-    final secondary = TonalPalette.fromHct(Hct.fromInt(secondaryColor.value));
-    final tertiary = TonalPalette.fromHct(Hct.fromInt(tertiaryColor.value));
-    final neutral = TonalPalette.fromHct(Hct.fromInt(neutralColor.value));
-    final neutralVariant =
-        TonalPalette.fromHct(Hct.fromInt(neutralVariantColor.value));
-    return DynamicScheme(
-      primaryPalette: primary,
-      secondaryPalette: secondary,
-      tertiaryPalette: tertiary,
-      neutralPalette: neutral,
-      neutralVariantPalette: neutralVariant,
-      sourceColorArgb: primaryColor.value,
-      isDark: false,
-      variant: Variant.content,
-    );
-  }
-
-  ThemeData _base(final ColorScheme colorScheme) {
+  static ThemeData lightThemeData() {
     return ThemeData(
-      useMaterial3: true,
-      extensions: [this],
-      colorScheme: colorScheme,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-      scaffoldBackgroundColor: colorScheme.surface,
+      brightness: Brightness.light,
       fontFamily: 'Raleway',
+      colorScheme: ColorScheme(
+        brightness: Brightness.light,
+        primary: Color(0xffFF3B1E),
+        surfaceTint: Color(0xffbc1700),
+        onPrimary: Color(0xffffffff),
+        primaryContainer: Color(0xffe32508),
+        onPrimaryContainer: Color(0xfffffbff),
+        secondary: Color(0xffab3522),
+        onSecondary: Color(0xffffffff),
+        secondaryContainer: Color(0xffff7259),
+        onSecondaryContainer: Color(0xff6f0900),
+        tertiary: Color(0xff7d5400),
+        onTertiary: Color(0xffffffff),
+        tertiaryContainer: Color(0xff9e6a00),
+        onTertiaryContainer: Color(0xfffffbff),
+        error: Color(0xffba1a1a),
+        onError: Color(0xffffffff),
+        errorContainer: Color(0xffffdad6),
+        onErrorContainer: Color(0xff93000a),
+        surface: Color(0xfffff8f6),
+        onSurface: Color(0xff291714),
+        onSurfaceVariant: Color(0xff5d3f3a),
+        outline: Color(0xff926f68),
+        outlineVariant: Color(0xffe7bdb5),
+        shadow: Color(0xff000000),
+        scrim: Color(0xff000000),
+        inverseSurface: Color(0xff402b27),
+        inversePrimary: Color(0xffffb4a6),
+        primaryFixed: Color(0xffffdad3),
+        onPrimaryFixed: Color(0xff3f0300),
+        primaryFixedDim: Color(0xffffb4a6),
+        onPrimaryFixedVariant: Color(0xff900f00),
+        secondaryFixed: Color(0xffffdad3),
+        onSecondaryFixed: Color(0xff3f0300),
+        secondaryFixedDim: Color(0xffffb4a6),
+        onSecondaryFixedVariant: Color(0xff891d0c),
+        tertiaryFixed: Color(0xffffddb0),
+        onTertiaryFixed: Color(0xff291800),
+        tertiaryFixedDim: Color(0xffffba48),
+        onTertiaryFixedVariant: Color(0xff614000),
+        surfaceDim: Color(0xfff4d3cc),
+        surfaceBright: Color(0xfffff8f6),
+        surfaceContainerLowest: Color(0xffffffff),
+        surfaceContainerLow: Color(0xfffff0ee),
+        surfaceContainer: Color(0xffffe9e5),
+        surfaceContainerHigh: Color(0xffffe2dc),
+        surfaceContainerHighest: Color(0xfffddbd5),
+      ),
+      useMaterial3: true,
     );
   }
 
-  ThemeData toThemeData(Brightness brightness) {
-    final colorScheme = _scheme().toColorScheme(brightness);
-    return _base(colorScheme).copyWith(brightness: colorScheme.brightness);
-  }
-
-  @override
-  ThemeExtension<MaterialTheme> copyWith({
-    Color? primaryColor,
-    Color? tertiaryColor,
-    Color? neutralColor,
-  }) =>
-      MaterialTheme(
-        primaryColor: primaryColor ?? this.primaryColor,
-        tertiaryColor: tertiaryColor ?? this.tertiaryColor,
-        neutralColor: neutralColor ?? this.neutralColor,
-      );
-
-  @override
-  MaterialTheme lerp(
-    covariant ThemeExtension<MaterialTheme>? other,
-    double t,
-  ) {
-    if (other is! MaterialTheme) return this;
-    return MaterialTheme(
-      primaryColor: Color.lerp(primaryColor, other.primaryColor, t)!,
-      tertiaryColor: Color.lerp(tertiaryColor, other.tertiaryColor, t)!,
-      neutralColor: Color.lerp(neutralColor, other.neutralColor, t)!,
+  static ThemeData darkThemeData() {
+    return ThemeData(
+      brightness: Brightness.dark,
+      useMaterial3: true,
+      colorScheme: ColorScheme(
+        brightness: Brightness.dark,
+        primary: Color(0xffFF3B1E),
+        surfaceTint: Color(0xffbc1700),
+        onPrimary: Color(0xffffffff),
+        primaryContainer: Color(0xffd71c00),
+        onPrimaryContainer: Color(0xffffffff),
+        secondary: Color(0xff710a00),
+        onSecondary: Color(0xffffffff),
+        secondaryContainer: Color(0xffbf432e),
+        onSecondaryContainer: Color(0xffffffff),
+        tertiary: Color(0xff4c3100),
+        onTertiary: Color(0xffffffff),
+        tertiaryContainer: Color(0xff946300),
+        onTertiaryContainer: Color(0xffffffff),
+        error: Color(0xff740006),
+        onError: Color(0xffffffff),
+        errorContainer: Color(0xffcf2c27),
+        onErrorContainer: Color(0xffffffff),
+        surface: Color(0xfffff8f6),
+        onSurface: Color(0xff1d0d0a),
+        onSurfaceVariant: Color(0xff4b2f2a),
+        outline: Color(0xff6a4b45),
+        outlineVariant: Color(0xff87655e),
+        shadow: Color(0xff000000),
+        scrim: Color(0xff000000),
+        inverseSurface: Color(0xff402b27),
+        inversePrimary: Color(0xffffb4a6),
+        primaryFixed: Color(0xffd71c00),
+        onPrimaryFixed: Color(0xffffffff),
+        primaryFixedDim: Color(0xffaa1400),
+        onPrimaryFixedVariant: Color(0xffffffff),
+        secondaryFixed: Color(0xffbf432e),
+        onSecondaryFixed: Color(0xffffffff),
+        secondaryFixedDim: Color(0xff9d2b19),
+        onSecondaryFixedVariant: Color(0xffffffff),
+        tertiaryFixed: Color(0xff946300),
+        onTertiaryFixed: Color(0xffffffff),
+        tertiaryFixedDim: Color(0xff744d00),
+        onTertiaryFixedVariant: Color(0xffffffff),
+        surfaceDim: Color(0xffe0bfb9),
+        surfaceBright: Color(0xfffff8f6),
+        surfaceContainerLowest: Color(0xffffffff),
+        surfaceContainerLow: Color(0xfffff0ee),
+        surfaceContainer: Color(0xffffe2dc),
+        surfaceContainerHigh: Color(0xfff7d5cf),
+        surfaceContainerHighest: Color(0xffebcac4),
+      ),
     );
-  }
-
-  /// green
-  static const green = ExtendedColor(
-    value: Color(0xff3ec029),
-  );
-  static const lightgreen = ExtendedColor(
-    value: Color(0xffD9F4E0),
-  );
-  static const lightgray = ExtendedColor(
-    value: Color(0xff696969),
-  );
-  static const thinGray = ExtendedColor(
-    value: Color(0xffC7C7C7),
-  );
-
-  static const textfildclr = ExtendedColor(
-    value: Color(0xFFFEF9F9),
-  );
-  static const black = ExtendedColor(
-    value: Colors.black,
-  );
-
-  static const gray = ExtendedColor(
-    value: Color(0xff494949),
-  );
-  static const whait = ExtendedColor(
-    value: Color.fromARGB(255, 255, 255, 255),
-  );
-  static const red = ExtendedColor(value: Color(0xffFE5B52));
-
-  /// light-orange
-  static const lightOrange = ExtendedColor(
-    value: Color(0xffee9220),
-  );
-
-  /// dark brown
-  static const dartBrown = ExtendedColor(
-    value: Color(0xff060527),
-  );
-
-  /// yellow
-  static const yellow = ExtendedColor(
-    value: Color(0xffFDB81F),
-  );
-
-  /// pink
-  static const pink = ExtendedColor(
-    value: Color(0xffe523a7),
-  );
-
-  /// blue
-  static const blue = ExtendedColor(
-    value: Color(0xff00335f),
-  );
-
-  /// cream
-  static const cream = ExtendedColor(
-    value: Color(0xffedcca0),
-  );
-
-  /// orange
-  static const orange = ExtendedColor(
-    value: Color(0xffee9220),
-  );
-
-  /// dark-orange
-  static const darkOrange = ExtendedColor(
-    value: Color(0xffd8771e),
-  );
-
-  /// bg-Doctor-Card
-  static const bgDoctorCard = ExtendedColor(
-    value: Color(0xffF7F6FA),
-  );
-
-  /// bg-Upload-Document
-  static const bgUploadDocument = ExtendedColor(
-    value: Color(0xffF8F8FF),
-  );
-
-  /// color-festival
-  static const colorFestival = ExtendedColor(
-    value: Color(0xffDD531B),
-  );
-  static const lightBlue = ExtendedColor(
-    value: Color(0xff1570EF),
-  );
-  static const drawerBackground = ExtendedColor(
-    value: Color(0xff2F1315),
-  );
-}
-
-extension on DynamicScheme {
-  ColorScheme toColorScheme(Brightness brightness) {
-    return ColorScheme(
-      primary: Color(primary),
-      onPrimary: Color(onPrimary),
-      primaryContainer: Color(primaryContainer),
-      onPrimaryContainer: Color(onPrimaryContainer),
-      secondary: Color(secondary),
-      onSecondary: Color(onSecondary),
-      secondaryContainer: Color(secondaryContainer),
-      onSecondaryContainer: Color(onSecondaryContainer),
-      tertiary: Color(tertiary),
-      onTertiary: Color(onTertiary),
-      tertiaryContainer: Color(tertiaryContainer),
-      onTertiaryContainer: Color(onTertiaryContainer),
-      error: Color(error),
-      onError: Color(onError),
-      errorContainer: Color(errorContainer),
-      onErrorContainer: Color(onErrorContainer),
-      outline: Color(outline),
-      outlineVariant: Color(outlineVariant),
-      surface: Color(surface),
-      onSurface: Color(onSurface),
-      surfaceContainerHighest: Color(surfaceVariant),
-      onSurfaceVariant: Color(onSurfaceVariant),
-      inverseSurface: Color(inverseSurface),
-      onInverseSurface: Color(inverseOnSurface),
-      inversePrimary: Color(inversePrimary),
-      shadow: Color(shadow),
-      scrim: Color(scrim),
-      surfaceTint: Color(primary),
-      brightness: brightness,
-    );
-  }
-}
-
-class ExtendedColor {
-  final Color value;
-
-  const ExtendedColor({
-    required this.value,
-  });
-}
-
-extension Material3Palette on Color {
-  Color tone(int tone) {
-    assert(tone >= 0 && tone <= 100);
-    final color = Hct.fromInt(value);
-    final tonalPalette = TonalPalette.of(color.hue, color.chroma);
-    return Color(tonalPalette.get(tone));
   }
 }

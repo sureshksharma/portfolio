@@ -7,7 +7,8 @@ part 'user.model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class UserModel {
-  String? id;
+  int? id;
+  String? role;
   String? name;
   String? phone;
   String? email;
@@ -16,6 +17,7 @@ class UserModel {
 
   UserModel({
     this.id,
+    this.role,
     this.name,
     this.phone,
     this.email,
@@ -57,7 +59,8 @@ class UserModel {
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 
   UserModel copyWith({
-    String? id,
+    int? id,
+    String? role,
     String? name,
     String? phone,
     String? email,
@@ -66,6 +69,7 @@ class UserModel {
   }) {
     return UserModel(
       id: id ?? this.id,
+      role: role ?? this.role,
       name: name ?? this.name,
       phone: phone ?? this.phone,
       email: email ?? this.email,

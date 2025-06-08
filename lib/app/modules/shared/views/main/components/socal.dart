@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../../../utils/responsive.dart';
+import '../../../../../routes/app_pages.dart';
 import '../../../controllers/menu_controller.dart';
 
 class Socal extends GetView<MenuController> {
@@ -56,19 +57,21 @@ class Socal extends GetView<MenuController> {
           ),
         if (!Responsive.isMobile(context))
           InkWell(
-            onTap: () {},
+            onTap: () {
+              Get.rootDelegate.toNamed(Routes.LOGIN);
+            },
             onHover: (value) {
               controller.headerSocialIconHover.value = value ? 2 : null;
             },
             child: Obx(
-              () => SvgPicture.asset(
-                "assets/icons/feather_twitter.svg",
-                colorFilter: ColorFilter.mode(
-                  controller.headerSocialIconHover.value == 2
-                      ? theme.colorScheme.primary
-                      : theme.colorScheme.onPrimary,
-                  BlendMode.srcIn,
-                ),
+              () => Icon(
+                controller.headerSocialIconHover.value == 2
+                    ? Icons.account_circle_rounded
+                    : Icons.account_circle_outlined,
+                color: controller.headerSocialIconHover.value == 2
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.onPrimary,
+                size: 30,
               ),
             ),
           ),
