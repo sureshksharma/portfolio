@@ -19,22 +19,22 @@ class ContactSection extends StatelessWidget {
               IconButton(
                 icon: const Icon(Icons.email),
                 tooltip: 'Email',
-                onPressed: () => launchUrl(Uri.parse("mailto:example@gmail.com")),
+                onPressed: () => launchUrl(Uri.parse("mailto:sureshksharma51100@gmail.com")),
               ),
               IconButton(
                 icon: const Icon(Icons.phone),
                 tooltip: 'Phone',
-                onPressed: () => launchUrl(Uri.parse("tel:+919999999999")),
+                onPressed: () => launchUrl(Uri.parse("tel:+919119396072")),
               ),
               IconButton(
                 icon: const Icon(Icons.link),
                 tooltip: 'LinkedIn',
-                onPressed: () => launchUrl(Uri.parse("https://www.linkedin.com/in/candidate-profile")),
+                onPressed: () => launchUrl(Uri.parse("https://www.linkedin.com/in/suresh-kumar-sharma-60ba99182")),
               ),
               IconButton(
                 icon: const Icon(Icons.code),
                 tooltip: 'GitHub',
-                onPressed: () => launchUrl(Uri.parse("https://github.com/username")),
+                onPressed: () => launchUrl(Uri.parse("https://github.com/sureshksharma")),
               ),
             ],
           ),
