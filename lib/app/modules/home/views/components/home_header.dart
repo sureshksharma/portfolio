@@ -3,11 +3,12 @@ import 'package:flutter/material.dart' hide MenuController;
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 
-import '../../../../../../utils/responsive.dart';
-import '../../../controllers/menu_controller.dart';
-import 'network_image.widget.dart';
+import '../../../../../utils/responsive.dart';
+import '../../../shared/controllers/menu_controller.dart';
+import '../../../shared/views/main/components/network_image.widget.dart';
+import '../../controllers/home_controller.dart';
 
-class HomeHeader extends GetView<MenuController> {
+class HomeHeader extends GetView<HomeController> {
   const HomeHeader({super.key});
 
   @override
@@ -16,37 +17,34 @@ class HomeHeader extends GetView<MenuController> {
     final theme = Get.theme;
     return Stack(
       children: [
-        CarouselSlider(
-          options: CarouselOptions(
-            aspectRatio: 9 / 4,
-            viewportFraction: 1,
-            initialPage: 0,
-            enableInfiniteScroll: true,
-            reverse: false,
-            autoPlay: true,
-            autoPlayInterval: Duration(seconds: 3),
-            autoPlayAnimationDuration: Duration(milliseconds: 2000),
-            autoPlayCurve: Curves.fastOutSlowIn,
-            enlargeCenterPage: false,
-            scrollDirection: Axis.horizontal,
+        Obx(
+          () => CarouselSlider(
+            carouselController: controller.sliderController,
+            options: CarouselOptions(
+              aspectRatio: 9 / 4,
+              viewportFraction: 1,
+              initialPage: 0,
+              enableInfiniteScroll: true,
+              reverse: false,
+              autoPlay: true,
+              autoPlayInterval: Duration(seconds: 3),
+              autoPlayAnimationDuration: Duration(milliseconds: 2000),
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enlargeCenterPage: false,
+              scrollDirection: Axis.horizontal,
+            ),
+            items: (controller.homeData.value?.sliders ?? []).map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return NetworkImageWidget(
+                    i,
+                    width: SizeConfig.screenWidth,
+                    fit: BoxFit.fitWidth,
+                  );
+                },
+              );
+            }).toList(),
           ),
-          items: [
-            'https://media.istockphoto.com/id/1347088244/photo/kerala-most-beautiful-place-of-india.jpg?s=1024x1024&w=is&k=20&c=TErl9Rcp8dHOUHxr96Wp4CrryOhCQcfdnCQARr9hWpc=',
-            'https://media.istockphoto.com/id/1031430214/photo/young-woman-kayaking-through-the-backwaters-of-monroe-island.jpg?s=1024x1024&w=is&k=20&c=_oF7GgQFtH5p9gNGehfQmJh70rjKYAX-OODPFj6F8M4=',
-            'https://media.istockphoto.com/id/930852852/photo/dhankar-gompa-india-spiti-valley.jpg?s=1024x1024&w=is&k=20&c=x8DaSMAdl8Evv8tePEyfrBGD43KDYlIH5aG7YhH-s24=',
-            'https://media.istockphoto.com/id/1145064928/photo/tourist-riding-camel-in-desert.jpg?s=1024x1024&w=is&k=20&c=PhqDWlUjEUBYCK04ey394klCQCcJr1Z1YKecTJ_s1bY=',
-            'https://media.istockphoto.com/id/1140611116/photo/excited-to-travel.jpg?s=1024x1024&w=is&k=20&c=6NBqHiQH-5fTarqFmkBC_uR0S0YqoWj3Qmh9gH3JliU=',
-          ].map((i) {
-            return Builder(
-              builder: (BuildContext context) {
-                return NetworkImageWidget(
-                  i,
-                  width: SizeConfig.screenWidth,
-                  fit: BoxFit.fitWidth,
-                );
-              },
-            );
-          }).toList(),
         ),
         Positioned.fill(
           child: Container(
@@ -100,7 +98,7 @@ class HomeHeader extends GetView<MenuController> {
                 ),
                 FittedBox(
                   child: TextButton(
-                    onPressed: () => controller.setMenuIndex(2),
+                    onPressed: () => Get.find<MenuController>().setMenuIndex(2),
                     child: Row(
                       children: [
                         Text(
@@ -121,6 +119,32 @@ class HomeHeader extends GetView<MenuController> {
                 ).animate().fade(delay: 4000.ms, duration: 2000.ms),
               ],
             ),
+          ),
+        ),
+        Positioned(
+          top: 0,
+          bottom: 0,
+          right: SizeConfig.defaultSize,
+          child: IconButton(
+            onPressed: controller.sliderController.nextPage,
+            style: IconButton.styleFrom(
+              shape: CircleBorder(),
+              backgroundColor: theme.colorScheme.onPrimary,
+            ),
+            icon: Icon(Icons.arrow_forward_ios),
+          ),
+        ),
+        Positioned(
+          top: 0,
+          bottom: 0,
+          left: SizeConfig.defaultSize,
+          child: IconButton(
+            onPressed: controller.sliderController.previousPage,
+            style: IconButton.styleFrom(
+              shape: CircleBorder(),
+              backgroundColor: theme.colorScheme.onPrimary,
+            ),
+            icon: Icon(Icons.arrow_back_ios),
           ),
         ),
       ],

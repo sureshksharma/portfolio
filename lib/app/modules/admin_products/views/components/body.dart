@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../../theme/theme.dart';
 import '../../../../../utils/responsive.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../shared/views/main/components/network_image.widget.dart';
 import '../../controllers/admin_products_controller.dart';
 import 'add_product_dialog.widget.dart';
@@ -20,7 +21,7 @@ class AdminProductsBody extends GetView<AdminProductsController> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 'Product Management',
@@ -28,12 +29,19 @@ class AdminProductsBody extends GetView<AdminProductsController> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+              const Spacer(),
               ElevatedButton(
                 onPressed: () {
                   showDialog(
                     context: context,
                     builder: (ctx) => const AddProductDialog(),
                   );
+                  if (controller.productCategories.isEmpty) {
+                    controller.futureDialog.value = Future.wait([
+                      controller.fetchProductCategories(),
+                      controller.fetchProductTypes(),
+                    ]);
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: theme.colorScheme.primary,
@@ -63,6 +71,102 @@ class AdminProductsBody extends GetView<AdminProductsController> {
                   ],
                 ),
               ),
+              SizedBox(width: SizeConfig.defaultSize),
+              PopupMenuButton(
+                color: theme.colorScheme.onPrimary,
+                icon: Icon(Icons.more_horiz),
+                iconColor: theme.colorScheme.scrim,
+                tooltip: 'More Actions',
+                position: PopupMenuPosition.under,
+                onSelected: (value) {
+                  switch (value) {
+                    case 1:
+                      Get.rootDelegate.toNamed(Routes.ADMIN_PRODUCT_GALLERY);
+                      break;
+                    case 2:
+                      Get.rootDelegate.toNamed(Routes.ADMIN_PRODUCT_FARES);
+                      break;
+                    case 3:
+                      Get.rootDelegate.toNamed(Routes.ADMIN_PRODUCT_TNC);
+                      break;
+                    case 4:
+                      Get.rootDelegate.toNamed(Routes.ADMIN_PRODUCT_REVIEWS);
+                      break;
+                  }
+                },
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: 0,
+                    enabled: false,
+                    labelTextStyle: WidgetStateProperty.all(
+                      theme.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    child: Text('More Actions'),
+                  ),
+                  PopupMenuItem(
+                    value: 1,
+                    labelTextStyle:
+                        WidgetStateProperty.all(theme.textTheme.bodySmall),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.photo,
+                          color: theme.colorScheme.scrim,
+                        ),
+                        SizedBox(width: kDefaultPadding / 4),
+                        Text('Product Gallery'),
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: 2,
+                    labelTextStyle:
+                        WidgetStateProperty.all(theme.textTheme.bodySmall),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.currency_rupee,
+                          color: theme.colorScheme.scrim,
+                        ),
+                        SizedBox(width: kDefaultPadding / 4),
+                        Text('Product Fares'),
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: 3,
+                    labelTextStyle:
+                        WidgetStateProperty.all(theme.textTheme.bodySmall),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.privacy_tip,
+                          color: theme.colorScheme.scrim,
+                        ),
+                        SizedBox(width: kDefaultPadding / 4),
+                        Text('Product TnC'),
+                      ],
+                    ),
+                  ),
+                  PopupMenuItem(
+                    value: 3,
+                    labelTextStyle:
+                        WidgetStateProperty.all(theme.textTheme.bodySmall),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: MaterialTheme.colorYellow,
+                        ),
+                        SizedBox(width: kDefaultPadding / 4),
+                        Text('Product Reviews'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
           SizedBox(height: SizeConfig.defaultSize),
@@ -88,125 +192,122 @@ class AdminProductsBody extends GetView<AdminProductsController> {
                   ),
                   SizedBox(height: SizeConfig.defaultSize),
                   // Table Header
-                  DataTable(
-                    headingTextStyle: theme.textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                    dataRowMaxHeight: kMinInteractiveDimension * 2,
-                    columns: [
-                      DataColumn(
-                        label: Text('Image'),
-                      ),
-                      DataColumn(
-                        label: Text('Name'),
-                      ),
-                      DataColumn(
-                        label: Text('Category'),
-                      ),
-                      DataColumn(
-                        label: Text('Subcategory'),
-                      ),
-                      DataColumn(
-                        label: Text('Type'),
-                      ),
-                      DataColumn(
-                        label: Text('Price'),
-                      ),
-                      DataColumn(
-                        label: Text('Status'),
-                      ),
-                      DataColumn(
-                        label: Text('Actions'),
-                      ),
-                    ],
-                    rows: [
-                      DataRow(
-                        cells: [
-                          DataCell(
-                            NetworkImageWidget(
-                              null,
-                              height: SizeConfig.defaultSize * 3,
-                              width: SizeConfig.defaultSize * 3,
-                            ),
-                          ),
-                          DataCell(
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Text(
-                                    'Jaipur Full Day City Sightseeing (Sedan)'),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(
-                                      Icons.schedule,
-                                      size: kMinInteractiveDimension / 4,
-                                      color: theme.colorScheme.outlineVariant,
-                                    ),
-                                    Text(
-                                      '8 Hours',
-                                      style:
-                                          theme.textTheme.labelSmall?.copyWith(
-                                        color: theme.colorScheme.outlineVariant,
-                                      ),
-                                    ),
-                                  ],
+                  Obx(
+                    () => FutureBuilder(
+                      future: controller.future.value,
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done &&
+                            controller.products.isNotEmpty) {
+                          return Obx(
+                            () => DataTable(
+                              headingTextStyle:
+                                  theme.textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                              dataRowMaxHeight: kMinInteractiveDimension * 2,
+                              columns: [
+                                DataColumn(
+                                  label: Text('Image'),
                                 ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(
-                                      Icons.person,
-                                      size: kMinInteractiveDimension / 4,
-                                      color: theme.colorScheme.outlineVariant,
-                                    ),
-                                    Text(
-                                      '4 pax',
-                                      style:
-                                          theme.textTheme.labelSmall?.copyWith(
-                                        color: theme.colorScheme.outlineVariant,
-                                      ),
-                                    ),
-                                  ],
+                                DataColumn(
+                                  label: Text('Name'),
+                                ),
+                                DataColumn(
+                                  label: Text('Category'),
+                                ),
+                                DataColumn(
+                                  label: Text('Type'),
+                                ),
+                                DataColumn(
+                                  label: Text('Description'),
+                                ),
+                                DataColumn(
+                                  label: Text('Status'),
+                                ),
+                                DataColumn(
+                                  label: Text('Actions'),
                                 ),
                               ],
+                              rows: controller.products
+                                  .map(
+                                    (p) => DataRow(
+                                      cells: [
+                                        DataCell(
+                                          NetworkImageWidget(
+                                            p.image,
+                                            height: SizeConfig.defaultSize * 3,
+                                            width: SizeConfig.defaultSize * 3,
+                                          ),
+                                        ),
+                                        DataCell(
+                                          Text(p.name ?? ''),
+                                        ),
+                                        DataCell(
+                                          Text(p.category?.name ?? ''),
+                                        ),
+                                        DataCell(
+                                          Text(p.type?.name ?? ''),
+                                        ),
+                                        DataCell(
+                                          SizedBox(
+                                            width: SizeConfig.screenWidth / 9,
+                                            child: Text(p.desc ?? ''),
+                                          ),
+                                        ),
+                                        DataCell(
+                                          Container(
+                                            padding: EdgeInsets.symmetric(
+                                              vertical: 2,
+                                              horizontal:
+                                                  SizeConfig.defaultSize * 0.5,
+                                            ),
+                                            decoration: ShapeDecoration(
+                                              shape: StadiumBorder(),
+                                              color: p.status == 1
+                                                  ? MaterialTheme.colorGreen
+                                                  : p.status == 2
+                                                      ? MaterialTheme
+                                                          .colorYellow
+                                                      : theme.colorScheme
+                                                          .errorContainer,
+                                            ),
+                                            child: Text(
+                                              p.status == 1
+                                                  ? 'Available'
+                                                  : p.status == 2
+                                                      ? 'Draft'
+                                                      : 'Unavailable',
+                                              style: theme.textTheme.bodyMedium
+                                                  ?.copyWith(
+                                                color:
+                                                    theme.colorScheme.onPrimary,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        DataCell(
+                                          showPopupActions(),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                  .toList(),
                             ),
-                          ),
-                          DataCell(
-                            Text('Transportation'),
-                          ),
-                          DataCell(
-                            Text('Jaipur City Taxi'),
-                          ),
-                          DataCell(
-                            Text('₹2500.00'),
-                          ),
-                          DataCell(
-                            Container(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 2,
-                                horizontal: SizeConfig.defaultSize * 0.5,
-                              ),
-                              decoration: ShapeDecoration(
-                                shape: StadiumBorder(),
-                                color: MaterialTheme.colorGreen,
-                              ),
-                              child: Text(
-                                'Active',
-                                style: theme.textTheme.bodyMedium?.copyWith(
-                                  color: theme.colorScheme.onPrimary,
-                                ),
-                              ),
-                            ),
-                          ),
-                          DataCell(Text('5')),
-                          DataCell(
-                            showPopupActions(),
-                          ),
-                        ],
-                      ),
-                    ],
+                          );
+                        } else if (snapshot.connectionState ==
+                                ConnectionState.done &&
+                            controller.products.isEmpty) {
+                          return Center(
+                            child: Text(
+                                'Products not available. Please add products.'),
+                          );
+                        } else {
+                          return Center(
+                            child: Text('Please wait...'),
+                          );
+                        }
+                      },
+                    ),
                   ),
                 ],
               ),

@@ -9,7 +9,9 @@ part of 'driver_fare.model.dart';
 DriverFareModel _$DriverFareModelFromJson(Map<String, dynamic> json) =>
     DriverFareModel(
       id: (json['id'] as num?)?.toInt(),
-      driverId: (json['driver_id'] as num?)?.toInt(),
+      driver: json['driver'] == null
+          ? null
+          : DriverModel.fromJson(json['driver'] as Map<String, dynamic>),
       fareType: json['fare_type'] == null
           ? null
           : TypeModel.fromJson(json['fare_type'] as Map<String, dynamic>),
@@ -20,7 +22,7 @@ DriverFareModel _$DriverFareModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$DriverFareModelToJson(DriverFareModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'driver_id': instance.driverId,
+      'driver': instance.driver,
       'fare_type': instance.fareType,
       'fare': instance.fare,
       'status': instance.status,

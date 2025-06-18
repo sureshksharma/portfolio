@@ -10,14 +10,15 @@ class AdminMainController extends GetxController {
 
   List<String> get menuItems => [
         "Dashboard",
+        "Users",
+        "Bookings",
+        "Products",
         "Categories",
         "Subcategories",
-        "Products",
-        "Users",
-        "Enquiries",
         "Vehicles",
         "Drivers",
-        "Bookings",
+        "Spots",
+        "Enquiries",
         "CMS",
         "Settings",
       ];
@@ -30,19 +31,19 @@ class AdminMainController extends GetxController {
         Get.rootDelegate.toNamed(Routes.ADMIN_DASHBOARD);
         break;
       case 1:
-        Get.rootDelegate.toNamed(Routes.ADMIN_CATEGORIES);
+        Get.rootDelegate.toNamed(Routes.ADMIN_USERS);
         break;
       case 2:
-        Get.rootDelegate.toNamed(Routes.ADMIN_SUB_CATEGORIES);
+        Get.rootDelegate.toNamed(Routes.ADMIN_BOOKINGS);
         break;
       case 3:
         Get.rootDelegate.toNamed(Routes.ADMIN_PRODUCTS);
         break;
       case 4:
-        Get.rootDelegate.toNamed(Routes.ADMIN_USERS);
+        Get.rootDelegate.toNamed(Routes.ADMIN_CATEGORIES);
         break;
       case 5:
-        Get.rootDelegate.toNamed(Routes.ADMIN_ENQUIRIES);
+        Get.rootDelegate.toNamed(Routes.ADMIN_SUB_CATEGORIES);
         break;
       case 6:
         Get.rootDelegate.toNamed(Routes.ADMIN_VEHICLES);
@@ -50,11 +51,13 @@ class AdminMainController extends GetxController {
       case 7:
         Get.rootDelegate.toNamed(Routes.ADMIN_DRIVERS);
       case 8:
-        Get.rootDelegate.toNamed(Routes.ADMIN_BOOKINGS);
+        Get.rootDelegate.toNamed(Routes.ADMIN_SPOTS);
       case 9:
-        Get.rootDelegate.toNamed(Routes.ADMIN_CMS);
+        Get.rootDelegate.toNamed(Routes.ADMIN_ENQUIRIES);
         break;
       case 10:
+        Get.rootDelegate.toNamed(Routes.ADMIN_CMS);
+      case 11:
         Get.rootDelegate.toNamed(Routes.ADMIN_PROFILE);
         break;
     }

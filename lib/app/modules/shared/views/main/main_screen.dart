@@ -4,7 +4,6 @@ import '../../../../../utils/responsive.dart';
 import '../../controllers/menu_controller.dart';
 import 'components/footer.dart';
 import 'components/header.dart';
-import 'components/home_header.dart';
 import 'components/side_menu.dart';
 
 class MainScreen extends GetView<MenuController> {
@@ -20,16 +19,12 @@ class MainScreen extends GetView<MenuController> {
         child: Column(
           children: [
             Header(),
-            Obx(
-              () => controller.selectedIndex.value == 0
-                  ? HomeHeader()
-                  : Container(),
-            ),
-            Container(
-              padding: EdgeInsets.all(kDefaultPadding),
-              constraints: BoxConstraints(maxWidth: kMaxWidth),
-              child: SafeArea(child: child),
-            ),
+            // Obx(
+            //   () => controller.selectedIndex.value == 0
+            //       ? HomeHeader()
+            //       : Container(),
+            // ),
+            child,
             Footer(),
           ],
         ),

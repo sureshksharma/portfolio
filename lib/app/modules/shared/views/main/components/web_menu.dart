@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../../../../../utils/responsive.dart';
 import '../../../controllers/menu_controller.dart';
 
-
 class WebMenu extends GetView<MenuController> {
   const WebMenu({super.key});
 
@@ -14,11 +13,13 @@ class WebMenu extends GetView<MenuController> {
       () => Row(
         children: List.generate(
           controller.menuItems.length,
-          (index) => WebMenuItem(
-            text: controller.menuItems[index],
-            isActive: index == controller.selectedIndex.value,
-            press: () => controller.setMenuIndex(index),
-          ),
+          (index) => index > 0
+              ? WebMenuItem(
+                  text: controller.menuItems[index],
+                  isActive: index == controller.selectedIndex.value,
+                  press: () => controller.setMenuIndex(index),
+                )
+              : Container(),
         ),
       ),
     );

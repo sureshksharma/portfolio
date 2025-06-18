@@ -24,6 +24,14 @@ abstract class Routes {
   static const ADMIN_PROFILE = _Paths.ADMIN_PROFILE;
   static const ADMIN_VEHICLE_TYPE = _Paths.ADMIN_VEHICLE_TYPE;
   static const ADMIN_VEHICLE_FARE = _Paths.ADMIN_VEHICLE_FARE;
+  static const ADMIN_DRIVER_FARES = _Paths.ADMIN_DRIVER_FARES;
+  static const ADMIN_SPOTS = _Paths.ADMIN_SPOTS;
+  static const ADMIN_SPOT_TYPES = _Paths.ADMIN_SPOT_TYPES;
+  static const ADMIN_SPOT_GELLERY = _Paths.ADMIN_SPOT_GELLERY;
+  static const ADMIN_PRODUCT_FARES = _Paths.ADMIN_PRODUCT_FARES;
+  static const ADMIN_PRODUCT_GALLERY = _Paths.ADMIN_PRODUCT_GALLERY;
+  static const ADMIN_PRODUCT_TNC = _Paths.ADMIN_PRODUCT_TNC;
+  static const ADMIN_PRODUCT_REVIEWS = _Paths.ADMIN_PRODUCT_REVIEWS;
 }
 
 abstract class _Paths {
@@ -49,4 +57,12 @@ abstract class _Paths {
   static const ADMIN_PROFILE = '/admin-profile';
   static const ADMIN_VEHICLE_TYPE = '/admin-vehicle-type';
   static const ADMIN_VEHICLE_FARE = '/admin-vehicle-fare';
+  static const ADMIN_DRIVER_FARES = '/admin-driver-fares';
+  static const ADMIN_SPOTS = '/admin-spots';
+  static const ADMIN_SPOT_TYPES = '/admin-spot-types';
+  static const ADMIN_SPOT_GELLERY = '/admin-spot-gellery';
+  static const ADMIN_PRODUCT_FARES = '/admin-product-fares';
+  static const ADMIN_PRODUCT_GALLERY = '/admin-product-gallery';
+  static const ADMIN_PRODUCT_TNC = '/admin-product-tnc';
+  static const ADMIN_PRODUCT_REVIEWS = '/admin-product-reviews';
 }

@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'driver.model.dart';
 import 'type.model.dart';
 
 part 'driver_fare.model.g.dart';
@@ -7,14 +8,14 @@ part 'driver_fare.model.g.dart';
 @JsonSerializable(fieldRename: FieldRename.snake)
 class DriverFareModel {
   int? id;
-  int? driverId;
+  DriverModel? driver;
   TypeModel? fareType;
   double? fare;
   int? status;
 
   DriverFareModel({
     this.id,
-    this.driverId,
+    this.driver,
     this.fareType,
     this.fare,
     this.status,
@@ -33,14 +34,14 @@ class DriverFareModel {
 
   DriverFareModel copyWith({
     int? id,
-    int? driverId,
+    DriverModel? driver,
     TypeModel? fareType,
     double? fare,
     int? status,
   }) {
     return DriverFareModel(
       id: id ?? this.id,
-      driverId: driverId ?? this.driverId,
+      driver: driver ?? this.driver,
       fareType: fareType ?? this.fareType,
       fare: fare ?? this.fare,
       status: status ?? this.status,

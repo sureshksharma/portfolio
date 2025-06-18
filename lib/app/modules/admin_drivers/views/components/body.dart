@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../../../theme/theme.dart';
 import '../../../../../utils/responsive.dart';
+import '../../../../routes/app_pages.dart';
 import '../../controllers/admin_drivers_controller.dart';
 import 'add_driver_dialog.widget.dart';
 
@@ -61,6 +62,46 @@ class AdminDriversBody extends GetView<AdminDriversController> {
                     )
                   ],
                 ),
+              ),
+              PopupMenuButton(
+                color: theme.colorScheme.onPrimary,
+                icon: Icon(Icons.more_horiz),
+                iconColor: theme.colorScheme.scrim,
+                tooltip: 'More Actions',
+                position: PopupMenuPosition.under,
+                onSelected: (value) {
+                  switch (value) {
+                    case 1:
+                      Get.rootDelegate.toNamed(Routes.ADMIN_DRIVER_FARES);
+                  }
+                },
+                itemBuilder: (context) => [
+                  PopupMenuItem(
+                    value: 0,
+                    enabled: false,
+                    labelTextStyle: WidgetStateProperty.all(
+                      theme.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    child: Text('More Actions'),
+                  ),
+                  PopupMenuItem(
+                    value: 1,
+                    labelTextStyle:
+                        WidgetStateProperty.all(theme.textTheme.bodySmall),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.currency_rupee,
+                          color: theme.colorScheme.scrim,
+                        ),
+                        SizedBox(width: kDefaultPadding / 4),
+                        Text('Driver Fares'),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

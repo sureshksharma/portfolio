@@ -8,9 +8,11 @@ part of 'spot.model.dart';
 
 SpotModel _$SpotModelFromJson(Map<String, dynamic> json) => SpotModel(
       id: (json['id'] as num?)?.toInt(),
+      image: json['image'] as String?,
       name: json['name'] as String?,
       location: json['location'] as String?,
-      coordinates: json['coordinates'] as String?,
+      latitude: (json['latitude'] as num?)?.toDouble(),
+      longitude: (json['longitude'] as num?)?.toDouble(),
       type: json['type'] == null
           ? null
           : TypeModel.fromJson(json['type'] as Map<String, dynamic>),
@@ -27,8 +29,10 @@ SpotModel _$SpotModelFromJson(Map<String, dynamic> json) => SpotModel(
 Map<String, dynamic> _$SpotModelToJson(SpotModel instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'image': instance.image,
       'location': instance.location,
-      'coordinates': instance.coordinates,
+      'latitude': instance.latitude,
+      'longitude': instance.longitude,
       'type': instance.type,
       'desc': instance.desc,
       'state': instance.state,

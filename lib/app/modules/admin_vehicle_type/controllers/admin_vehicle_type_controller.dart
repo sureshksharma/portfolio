@@ -20,7 +20,7 @@ class AdminVehicleTypeController extends GetxController {
 
   String? validateName(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Please enter valid category name.';
+      return 'Please enter valid vehicle type name.';
     }
     return null;
   }

@@ -10,14 +10,30 @@ import '../modules/admin_cms/bindings/admin_cms_binding.dart';
 import '../modules/admin_cms/views/admin_cms_view.dart';
 import '../modules/admin_dashboard/bindings/admin_dashboard_binding.dart';
 import '../modules/admin_dashboard/views/admin_dashboard_view.dart';
+import '../modules/admin_driver_fares/bindings/admin_driver_fares_binding.dart';
+import '../modules/admin_driver_fares/views/admin_driver_fares_view.dart';
 import '../modules/admin_drivers/bindings/admin_drivers_binding.dart';
 import '../modules/admin_drivers/views/admin_drivers_view.dart';
 import '../modules/admin_enquiries/bindings/admin_enquiries_binding.dart';
 import '../modules/admin_enquiries/views/admin_enquiries_view.dart';
+import '../modules/admin_product_fares/bindings/admin_product_fares_binding.dart';
+import '../modules/admin_product_fares/views/admin_product_fares_view.dart';
+import '../modules/admin_product_gallery/bindings/admin_product_gallery_binding.dart';
+import '../modules/admin_product_gallery/views/admin_product_gallery_view.dart';
+import '../modules/admin_product_reviews/bindings/admin_product_reviews_binding.dart';
+import '../modules/admin_product_reviews/views/admin_product_reviews_view.dart';
+import '../modules/admin_product_tnc/bindings/admin_product_tnc_binding.dart';
+import '../modules/admin_product_tnc/views/admin_product_tnc_view.dart';
 import '../modules/admin_products/bindings/admin_products_binding.dart';
 import '../modules/admin_products/views/admin_products_view.dart';
 import '../modules/admin_profile/bindings/admin_profile_binding.dart';
 import '../modules/admin_profile/views/admin_profile_view.dart';
+import '../modules/admin_spot_gellery/bindings/admin_spot_gellery_binding.dart';
+import '../modules/admin_spot_gellery/views/admin_spot_gellery_view.dart';
+import '../modules/admin_spot_types/bindings/admin_spot_types_binding.dart';
+import '../modules/admin_spot_types/views/admin_spot_types_view.dart';
+import '../modules/admin_spots/bindings/admin_spots_binding.dart';
+import '../modules/admin_spots/views/admin_spots_view.dart';
 import '../modules/admin_sub_categories/bindings/admin_sub_categories_binding.dart';
 import '../modules/admin_sub_categories/views/admin_sub_categories_view.dart';
 import '../modules/admin_users/bindings/admin_users_binding.dart';
@@ -156,6 +172,46 @@ class AppPages {
       name: _Paths.ADMIN_VEHICLE_FARE,
       page: () => const AdminVehicleFareView(),
       binding: AdminVehicleFareBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_DRIVER_FARES,
+      page: () => const AdminDriverFaresView(),
+      binding: AdminDriverFaresBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_SPOTS,
+      page: () => const AdminSpotsView(),
+      binding: AdminSpotsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_SPOT_TYPES,
+      page: () => const AdminSpotTypesView(),
+      binding: AdminSpotTypesBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_SPOT_GELLERY,
+      page: () => const AdminSpotGelleryView(),
+      binding: AdminSpotGelleryBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_PRODUCT_FARES,
+      page: () => const AdminProductFaresView(),
+      binding: AdminProductFaresBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_PRODUCT_GALLERY,
+      page: () => const AdminProductGalleryView(),
+      binding: AdminProductGalleryBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_PRODUCT_TNC,
+      page: () => const AdminProductTncView(),
+      binding: AdminProductTncBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMIN_PRODUCT_REVIEWS,
+      page: () => const AdminProductReviewsView(),
+      binding: AdminProductReviewsBinding(),
     ),
   ];
 }

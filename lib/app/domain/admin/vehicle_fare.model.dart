@@ -1,20 +1,21 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'type.model.dart';
+import 'vehicle.model.dart';
 
 part 'vehicle_fare.model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class VehicleFareModel {
   int? id;
-  int? vehicleId;
+  VehicleModel? vehicle;
   TypeModel? fareType;
   double? fare;
   int? status;
 
   VehicleFareModel({
     this.id,
-    this.vehicleId,
+    this.vehicle,
     this.fareType,
     this.fare,
     this.status,
@@ -33,14 +34,14 @@ class VehicleFareModel {
 
   VehicleFareModel copyWith({
     int? id,
-    int? vehicleId,
+    VehicleModel? vehicle,
     TypeModel? fareType,
     double? fare,
     int? status,
   }) {
     return VehicleFareModel(
       id: id ?? this.id,
-      vehicleId: vehicleId ?? this.vehicleId,
+      vehicle: vehicle ?? this.vehicle,
       fareType: fareType ?? this.fareType,
       fare: fare ?? this.fare,
       status: status ?? this.status,

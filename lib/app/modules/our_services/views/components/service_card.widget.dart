@@ -41,7 +41,7 @@ class ServiceCard extends StatelessWidget {
                   ),
                   SizedBox(height: SizeConfig.defaultSize),
                   Text(
-                    subTitle,
+                    '$subTitle...',
                     textAlign: TextAlign.justify,
                     style: theme.textTheme.bodyMedium,
                   ),

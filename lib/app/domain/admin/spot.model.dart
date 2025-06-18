@@ -10,8 +10,10 @@ part 'spot.model.g.dart';
 class SpotModel {
   int? id;
   String? name;
+  String? image;
   String? location;
-  String? coordinates;
+  double? latitude;
+  double? longitude;
   TypeModel? type;
   String? desc;
   RegionModel? state;
@@ -20,9 +22,11 @@ class SpotModel {
 
   SpotModel({
     this.id,
+    this.image,
     this.name,
     this.location,
-    this.coordinates,
+    this.latitude,
+    this.longitude,
     this.type,
     this.desc,
     this.state,
@@ -44,7 +48,8 @@ class SpotModel {
     int? id,
     String? name,
     String? location,
-    String? coordinates,
+    double? latitude,
+    double? longitude,
     TypeModel? type,
     String? desc,
     RegionModel? state,
@@ -55,7 +60,8 @@ class SpotModel {
       id: id ?? this.id,
       name: name ?? this.name,
       location: location ?? this.location,
-      coordinates: coordinates ?? this.coordinates,
+      latitude: latitude ?? this.latitude,
+      longitude: longitude ?? this.longitude,
       type: type ?? this.type,
       desc: desc ?? this.desc,
       state: state ?? this.state,

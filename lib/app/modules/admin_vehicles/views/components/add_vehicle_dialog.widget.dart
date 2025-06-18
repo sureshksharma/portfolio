@@ -58,7 +58,7 @@ class AddVehicleDialog extends GetView<AdminVehiclesController> {
       ],
       content: Obx(
         () => FutureBuilder(
-            future: controller.future.value,
+            future: controller.futureDialog.value,
             builder: (context, snapshot) {
               return Form(
                 key: controller.formKey,

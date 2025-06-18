@@ -236,8 +236,8 @@ class AdminVehiclesController extends GetxController {
                 'status': selectedStatus.value!
               },
               document: gql(r'''
-          mutation CreateVehicle($make: String!, $model: String!, $year: Int!, $capacity: Int!, $license_plate: String!, $image: Upload!, $status: Int!) {
-            createVehicle(make: $make, model: $model, year: $year, capacity: $capacity, license_plate: $license_plate, image: $image, status: $status) {
+          mutation CreateVehicle($make: String!, $model: String!, $year: Int!, $type: Int!, $capacity: Int!, $license_plate: String!, $image: Upload!, $status: Int!) {
+            createVehicle(make: $make, model: $model, year: $year, type: $type, capacity: $capacity, license_plate: $license_plate, image: $image, status: $status) {
               id
               make
               model
@@ -274,9 +274,7 @@ class AdminVehiclesController extends GetxController {
           selectedVehicleType.value = null;
           selectedStatus.value = null;
           Get.back();
-          SnackbarUtil.showSuccess(
-            message: 'Vehicle created successfully!',
-          );
+          SnackbarUtil.showSuccess(message: 'Vehicle created successfully!');
         } else {
           SnackbarUtil.showError(
               message:

@@ -9,7 +9,9 @@ part of 'vehicle_fare.model.dart';
 VehicleFareModel _$VehicleFareModelFromJson(Map<String, dynamic> json) =>
     VehicleFareModel(
       id: (json['id'] as num?)?.toInt(),
-      vehicleId: (json['vehicle_id'] as num?)?.toInt(),
+      vehicle: json['vehicle'] == null
+          ? null
+          : VehicleModel.fromJson(json['vehicle'] as Map<String, dynamic>),
       fareType: json['fare_type'] == null
           ? null
           : TypeModel.fromJson(json['fare_type'] as Map<String, dynamic>),
@@ -20,7 +22,7 @@ VehicleFareModel _$VehicleFareModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$VehicleFareModelToJson(VehicleFareModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'vehicle_id': instance.vehicleId,
+      'vehicle': instance.vehicle,
       'fare_type': instance.fareType,
       'fare': instance.fare,
       'status': instance.status,
