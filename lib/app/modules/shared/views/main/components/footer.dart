@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide MenuController;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../../controllers/menu_controller.dart';
 
 import '../../../../../../utils/responsive.dart';
@@ -45,26 +46,42 @@ class Footer extends GetView<MenuController> {
                         ),
                       ),
                       SizedBox(width: SizeConfig.defaultSize),
-                      Text(
-                        'Address: 24 Gopi Nagar Vistar, Jaisinghpura Khor Delhi Bypass Jaipur, Rajasthan 302027',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.normal,
-                          color: theme.colorScheme.onPrimary,
+                      InkWell(
+                        onTap: () {
+                          launchUrlString(
+                              'https://maps.app.goo.gl/MCJTn2wCLpzs42KTA');
+                        },
+                        child: Text(
+                          '📍 101/46, Kumbha Marg, Sector 10, Pratap Nagar, Jaipur, Rajasthan - 302033',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.normal,
+                            color: theme.colorScheme.onPrimary,
+                          ),
                         ),
                       ),
                       SizedBox(width: SizeConfig.defaultSize / 2),
-                      Text(
-                        'Phone: +91 9983010250',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.normal,
-                          color: theme.colorScheme.onPrimary,
+                      InkWell(
+                        onTap: () {
+                          launchUrlString('tel://+917688992414');
+                        },
+                        child: Text(
+                          '📞 +91 7688992414',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.normal,
+                            color: theme.colorScheme.onPrimary,
+                          ),
                         ),
                       ),
-                      Text(
-                        'rajputanacabsindia@gmail.com',
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontWeight: FontWeight.normal,
-                          color: theme.colorScheme.onPrimary,
+                      InkWell(
+                        onTap: () {
+                          launchUrlString('mailto://tvaritcabs@gmail.com');
+                        },
+                        child: Text(
+                          '📧 tvaritcabs@gmail.com',
+                          style: theme.textTheme.bodyMedium?.copyWith(
+                            fontWeight: FontWeight.normal,
+                            color: theme.colorScheme.onPrimary,
+                          ),
                         ),
                       ),
                     ],
@@ -204,10 +221,9 @@ class Footer extends GetView<MenuController> {
                           right: SizeConfig.defaultSize,
                         ),
                         child: Image.asset(
-                          'assets/images/2.png',
+                          'assets/images/footer.webp',
                           height: SizeConfig.defaultSize * 10,
                           alignment: Alignment.centerLeft,
-                          fit: BoxFit.fitHeight,
                         ),
                       ),
                     ],
@@ -236,13 +252,18 @@ class Footer extends GetView<MenuController> {
                     ),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      launchUrlString(
+                          'https://www.facebook.com/share/16nukzUJ23/?mibextid=wwXIfr');
+                    },
                     onHover: (value) {
                       controller.footerSocialIconHover.value = value ? 0 : null;
                     },
                     child: Obx(
                       () => SvgPicture.asset(
-                        "assets/icons/behance-alt.svg",
+                        "assets/icons/facebook.svg",
+                        height: 24,
+                        width: 24,
                         colorFilter: ColorFilter.mode(
                           controller.footerSocialIconHover.value == 0
                               ? theme.colorScheme.onPrimary
@@ -252,15 +273,20 @@ class Footer extends GetView<MenuController> {
                       ),
                     ),
                   ),
-                  SizedBox(width: kDefaultPadding / 2),
+                  SizedBox(width: kDefaultPadding / 4),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      launchUrlString(
+                          'https://www.instagram.com/tvaritcabs/profilecard/?igsh=MXhtMnZoOThlOTF6dA==');
+                    },
                     onHover: (value) {
                       controller.footerSocialIconHover.value = value ? 1 : null;
                     },
                     child: Obx(
                       () => SvgPicture.asset(
-                        "assets/icons/feather_dribbble.svg",
+                        "assets/icons/instagram.svg",
+                        height: 24,
+                        width: 24,
                         colorFilter: ColorFilter.mode(
                           controller.footerSocialIconHover.value == 1
                               ? theme.colorScheme.onPrimary
@@ -270,15 +296,20 @@ class Footer extends GetView<MenuController> {
                       ),
                     ),
                   ),
-                  SizedBox(width: kDefaultPadding / 2),
+                  SizedBox(width: kDefaultPadding / 4),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      launchUrlString(
+                          'https://x.com/TvaritCabs?t=e9-ks2CzhotnFQKuFy_Ejg&s=09');
+                    },
                     onHover: (value) {
                       controller.footerSocialIconHover.value = value ? 2 : null;
                     },
                     child: Obx(
                       () => SvgPicture.asset(
-                        "assets/icons/feather_twitter.svg",
+                        "assets/icons/twitter.svg",
+                        height: 24,
+                        width: 24,
                         colorFilter: ColorFilter.mode(
                           controller.footerSocialIconHover.value == 2
                               ? theme.colorScheme.onPrimary

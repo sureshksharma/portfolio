@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../../../routes/app_pages.dart';
 
 class MenuController extends GetxController {
-  RxInt selectedIndex = 0.obs;
+  RxInt selectedIndex = 1.obs;
   RxnInt footerSocialIconHover = RxnInt();
   RxnInt headerSocialIconHover = RxnInt();
 

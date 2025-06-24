@@ -39,7 +39,7 @@ class HomeHeader extends GetView<HomeController> {
                   return NetworkImageWidget(
                     i,
                     width: SizeConfig.screenWidth,
-                    fit: BoxFit.fitWidth,
+                    fit: BoxFit.fill,
                   );
                 },
               );

@@ -1,22 +1,32 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import 'product.model.dart';
 import 'type.model.dart';
+import 'vehicle.model.dart';
 
 part 'product_fare.model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ProductFareModel {
   int? id;
-  int? productId;
+  ProductModel? product;
+  int? duration;
+  String? durationType;
+  VehicleModel? vehicle;
   TypeModel? fareType;
-  double? fare;
+  double? baseFare;
+  double? finalFare;
   int? status;
 
   ProductFareModel({
     this.id,
-    this.productId,
+    this.product,
+    this.duration,
+    this.durationType,
+    this.vehicle,
     this.fareType,
-    this.fare,
+    this.baseFare,
+    this.finalFare,
     this.status,
   });
 
@@ -33,16 +43,24 @@ class ProductFareModel {
 
   ProductFareModel copyWith({
     int? id,
-    int? productId,
+    ProductModel? product,
+    int? duration,
+    String? durationType,
+    VehicleModel? vehicle,
     TypeModel? fareType,
-    double? fare,
+    double? baseFare,
+    double? finalFare,
     int? status,
   }) {
     return ProductFareModel(
       id: id ?? this.id,
-      productId: productId ?? this.productId,
+      product: product ?? this.product,
+      duration: duration ?? this.duration,
+      durationType: durationType ?? this.durationType,
+      vehicle: vehicle ?? this.vehicle,
       fareType: fareType ?? this.fareType,
-      fare: fare ?? this.fare,
+      baseFare: baseFare ?? this.baseFare,
+      finalFare: finalFare ?? this.finalFare,
       status: status ?? this.status,
     );
   }

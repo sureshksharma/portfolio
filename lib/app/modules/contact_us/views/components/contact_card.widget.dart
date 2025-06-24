@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import '../../../../../utils/responsive.dart';
 
 class ContactCardWidget extends StatelessWidget {
-  const ContactCardWidget({super.key, required this.icon, required this.text});
+  const ContactCardWidget({super.key, required this.onTap, required this.icon, required this.text});
+  final VoidCallback onTap;
   final IconData icon;
   final String text;
 
@@ -12,36 +13,40 @@ class ContactCardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     final theme = Get.theme;
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: Responsive.isMobile(context)
-              ? double.infinity
-              : SizeConfig.screenWidth / 4,
-          padding: EdgeInsets.all(SizeConfig.defaultSize * 1.5),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
+    return InkWell(
+      onTap: onTap,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: Responsive.isMobile(context)
+                ? double.infinity
+                : SizeConfig.screenWidth / 4,
+            padding: EdgeInsets.all(SizeConfig.defaultSize * 1.5),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: theme.colorScheme.secondary,
+                width: 2,
+              ),
+            ),
+            child: Icon(
+              icon,
               color: theme.colorScheme.secondary,
-              width: 2,
+              size: SizeConfig.defaultSize * 3,
             ),
           ),
-          child: Icon(
-            icon,
-            color: theme.colorScheme.secondary,
-            size: SizeConfig.defaultSize * 3,
+          SizedBox(height: SizeConfig.defaultSize),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: theme.textTheme.titleMedium?.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(height: SizeConfig.defaultSize),
-        Text(
-          text,
-          style: theme.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

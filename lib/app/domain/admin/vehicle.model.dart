@@ -1,6 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
 import 'type.model.dart';
+import 'vehicle_fare.model.dart';
 
 part 'vehicle.model.g.dart';
 
@@ -11,6 +12,7 @@ class VehicleModel {
   String? model;
   int? year;
   TypeModel? type;
+  List<VehicleFareModel>? fare;
   int? capacity;
   String? licensePlate;
   String? image;
@@ -24,6 +26,7 @@ class VehicleModel {
     this.model,
     this.year,
     this.type,
+    this.fare,
     this.capacity,
     this.licensePlate,
     this.image,
@@ -48,6 +51,7 @@ class VehicleModel {
     String? model,
     int? year,
     TypeModel? type,
+    List<VehicleFareModel>? fare,
     int? capacity,
     String? licensePlate,
     String? image,
@@ -61,6 +65,7 @@ class VehicleModel {
       model: model ?? this.model,
       year: year ?? this.year,
       type: type ?? this.type,
+      fare: fare ?? this.fare,
       capacity: capacity ?? this.capacity,
       licensePlate: licensePlate ?? this.licensePlate,
       image: image ?? this.image,

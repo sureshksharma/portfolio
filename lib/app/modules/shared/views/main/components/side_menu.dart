@@ -29,6 +29,7 @@ class SideMenu extends GetView<MenuController> {
                   isActive: index == controller.selectedIndex.value,
                   title: controller.menuItems[index],
                   press: () {
+                    Scaffold.of(context).closeDrawer();
                     controller.setMenuIndex(index);
                   },
                 ),

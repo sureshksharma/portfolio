@@ -19,7 +19,14 @@ class WebMenu extends GetView<MenuController> {
                   isActive: index == controller.selectedIndex.value,
                   press: () => controller.setMenuIndex(index),
                 )
-              : Container(),
+              : Visibility(
+                  visible: false,
+                  child: WebMenuItem(
+                    text: controller.menuItems[index],
+                    isActive: index == controller.selectedIndex.value,
+                    press: () => controller.setMenuIndex(index),
+                  ),
+                ),
         ),
       ),
     );

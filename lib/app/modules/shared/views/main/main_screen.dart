@@ -19,11 +19,6 @@ class MainScreen extends GetView<MenuController> {
         child: Column(
           children: [
             Header(),
-            // Obx(
-            //   () => controller.selectedIndex.value == 0
-            //       ? HomeHeader()
-            //       : Container(),
-            // ),
             child,
             Footer(),
           ],

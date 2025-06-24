@@ -14,6 +14,9 @@ VehicleModel _$VehicleModelFromJson(Map<String, dynamic> json) => VehicleModel(
       type: json['type'] == null
           ? null
           : TypeModel.fromJson(json['type'] as Map<String, dynamic>),
+      fare: (json['fare'] as List<dynamic>?)
+          ?.map((e) => VehicleFareModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
       capacity: (json['capacity'] as num?)?.toInt(),
       licensePlate: json['license_plate'] as String?,
       image: json['image'] as String?,
@@ -29,6 +32,7 @@ Map<String, dynamic> _$VehicleModelToJson(VehicleModel instance) =>
       'model': instance.model,
       'year': instance.year,
       'type': instance.type,
+      'fare': instance.fare,
       'capacity': instance.capacity,
       'license_plate': instance.licensePlate,
       'image': instance.image,

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../controllers/menu_controller.dart';
 
 import '../../../../../../utils/responsive.dart';
-import 'socal.dart';
+import 'social.dart';
 import 'web_menu.dart';
 
 class Header extends GetView<MenuController> {
@@ -50,12 +50,12 @@ class Header extends GetView<MenuController> {
                       Spacer(),
                       if (Responsive.isDesktop(context)) WebMenu(),
                       Spacer(),
-                      // Socal
-                      const Socal(),
+                      // Social
+                      const Social(),
                     ],
                   ),
                   Obx(
-                    () => controller.selectedIndex.value != 0
+                    () => controller.selectedIndex.value != 1
                         ? Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [

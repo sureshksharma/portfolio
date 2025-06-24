@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart' hide MenuController;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../../../../../utils/responsive.dart';
 import '../../../../../routes/app_pages.dart';
 import '../../../controllers/menu_controller.dart';
 
-class Socal extends GetView<MenuController> {
-  const Socal({super.key});
+class Social extends GetView<MenuController> {
+  const Social({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +18,18 @@ class Socal extends GetView<MenuController> {
       children: [
         if (!Responsive.isMobile(context))
           InkWell(
-            onTap: () {},
+            onTap: () {
+              launchUrlString(
+                  'https://www.facebook.com/share/16nukzUJ23/?mibextid=wwXIfr');
+            },
             onHover: (value) {
               controller.headerSocialIconHover.value = value ? 0 : null;
             },
             child: Obx(
               () => SvgPicture.asset(
-                "assets/icons/behance-alt.svg",
+                "assets/icons/facebook.svg",
+                height: 24,
+                width: 24,
                 colorFilter: ColorFilter.mode(
                   controller.headerSocialIconHover.value == 0
                       ? theme.colorScheme.primary
@@ -38,13 +44,18 @@ class Socal extends GetView<MenuController> {
             padding:
                 EdgeInsets.symmetric(horizontal: SizeConfig.defaultSize / 2),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                launchUrlString(
+                    'https://www.instagram.com/tvaritcabs/profilecard/?igsh=MXhtMnZoOThlOTF6dA==');
+              },
               onHover: (value) {
                 controller.headerSocialIconHover.value = value ? 1 : null;
               },
               child: Obx(
                 () => SvgPicture.asset(
-                  "assets/icons/feather_dribbble.svg",
+                  "assets/icons/instagram.svg",
+                  height: 24,
+                  width: 24,
                   colorFilter: ColorFilter.mode(
                     controller.headerSocialIconHover.value == 1
                         ? theme.colorScheme.primary
@@ -77,7 +88,9 @@ class Socal extends GetView<MenuController> {
           ),
         SizedBox(width: SizeConfig.defaultSize * 0.5),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            launchUrlString('tel://+917688992414');
+          },
           style: TextButton.styleFrom(
             padding: EdgeInsets.symmetric(
               horizontal: SizeConfig.defaultSize,
@@ -85,7 +98,7 @@ class Socal extends GetView<MenuController> {
                   (Responsive.isDesktop(context) ? 1 : 2),
             ),
           ),
-          child: Text("Let's Talk"),
+          child: Text("📞 Let's Talk"),
         ),
       ],
     );

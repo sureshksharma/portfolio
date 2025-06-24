@@ -11,7 +11,6 @@ class LoadingWidget extends GetWidget<LoadingController> {
       () => controller.isLoading
           ? AbsorbPointer(
               child: Stack(
-                fit: StackFit.expand,
                 children: <Widget>[
                   ModalBarrier(
                     dismissible: false,

@@ -23,53 +23,59 @@ We have our own system the nation over including all real traveler goals. We hel
 
 Our fundamental concentrate on auto rental services in India and ensured the nature of Vehicle, Driver and ensures that vehicle should cover time. Our visitor can benefit auto rental service at reasonable cost with superb service at all area in India. We have little size auto, Medium Size Car, Mini Coach and Large Coach to offer the taxi administrations for abroad visitor and international safe haven assignment.''';
     return MainScreen(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'About Us',
-            style: theme.textTheme.headlineMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-              decoration: TextDecoration.underline,
-              decorationThickness: 3,
-              decorationStyle: TextDecorationStyle.solid,
+      child: SafeArea(
+        minimum: EdgeInsets.all(SizeConfig.defaultSize),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'About Us',
+              style: theme.textTheme.headlineMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                decoration: TextDecoration.underline,
+                decorationThickness: 3,
+                decorationStyle: TextDecorationStyle.solid,
+              ),
+            ).animate().fadeIn(duration: 1000.ms),
+            SizedBox(height: SizeConfig.defaultSize * 2),
+            Text(
+              aboutText,
+              style: theme.textTheme.bodyLarge,
+            ).animate().fadeIn(delay: 1000.ms, duration: 1000.ms),
+            SizedBox(height: SizeConfig.defaultSize * 2),
+            Align(
+              alignment: Alignment.center,
+              child: Wrap(
+                alignment: Responsive.isMobile(context)
+                    ? WrapAlignment.center
+                    : WrapAlignment.spaceEvenly,
+                spacing: SizeConfig.defaultSize,
+                runSpacing: SizeConfig.defaultSize,
+                children: [
+                  FeatureCardWidget(
+                    icon: Icons.thumb_up_outlined,
+                    title: 'Reliable services',
+                    subTitle:
+                        'Tvarit Cabs is the most reliable cabs service provider in the city.We offer efficient, reliable taxi service.',
+                  ),
+                  FeatureCardWidget(
+                    icon: Icons.car_rental_outlined,
+                    title: 'Luxury Cars',
+                    subTitle:
+                        'We are one of the most trusted Car Rental Company with a fleet of luxury and executive Cars that can suit all purposes and pockets.',
+                  ),
+                  FeatureCardWidget(
+                    icon: Icons.security_outlined,
+                    title: 'Secured Booking',
+                    subTitle:
+                        'Provide secure payment processing for your cabs. Secure booking payments to protect the identity of our customer. Quick easy and best.',
+                  ),
+                ],
+              ).animate().fadeIn(delay: 2000.ms, duration: 1000.ms),
             ),
-          ).animate().fadeIn(duration: 1000.ms),
-          SizedBox(height: SizeConfig.defaultSize * 2),
-          Text(
-            aboutText,
-            style: theme.textTheme.bodyLarge,
-          ).animate().fadeIn(delay: 1000.ms, duration: 1000.ms),
-          SizedBox(height: SizeConfig.defaultSize * 2),
-          Wrap(
-            alignment: Responsive.isMobile(context)
-                ? WrapAlignment.center
-                : WrapAlignment.spaceEvenly,
-            spacing: SizeConfig.defaultSize,
-            runSpacing: SizeConfig.defaultSize,
-            children: [
-              FeatureCardWidget(
-                icon: Icons.thumb_up_outlined,
-                title: 'Reliable services',
-                subTitle:
-                    'Tvarit Cabs is the most reliable cabs service provider in the city.We offer efficient, reliable taxi service.',
-              ),
-              FeatureCardWidget(
-                icon: Icons.car_rental_outlined,
-                title: 'Luxury Cars',
-                subTitle:
-                    'We are one of the most trusted Car Rental Company with a fleet of luxury and executive Cars that can suit all purposes and pockets.',
-              ),
-              FeatureCardWidget(
-                icon: Icons.security_outlined,
-                title: 'Secured Booking',
-                subTitle:
-                    'Provide secure payment processing for your cabs. Secure booking payments to protect the identity of our customer. Quick easy and best.',
-              ),
-            ],
-          ).animate().fadeIn(delay: 2000.ms, duration: 1000.ms),
-          SizedBox(height: SizeConfig.defaultSize),
-        ],
+            SizedBox(height: SizeConfig.defaultSize),
+          ],
+        ),
       ),
     );
   }
