@@ -29,6 +29,8 @@ class SkillsSection extends StatelessWidget {
         "REST API",
         "GraphQL",
         "Firebase Cloud Functions",
+        "Microservices",
+        "Serverless Architectures",
       ],
       "Databases": [
         "Firebase Firestore",
@@ -38,6 +40,29 @@ class SkillsSection extends StatelessWidget {
         "Moor/Drift",
         "MySQL",
         "MongoDB",
+        "Redis",
+      ],
+      "Cloud & DevOps": [
+        "AWS (EC2, S3, Lambda, RDS)",
+        "Google Cloud Platform",
+        "Azure",
+        "CI/CD (Codemagic, GitHub Actions)",
+        "Docker",
+        "Kubernetes",
+      ],
+      "Messaging & Queues": [
+        "Kafka",
+        "RabbitMQ",
+        "SQS",
+        "WebSockets",
+      ],
+      "CPaaS & Communication": [
+        "WhatsApp Business API",
+        "RCS",
+        "SMS Gateways",
+        "Twilio",
+        "Vonage",
+        "Email Integrations",
       ],
       "Tools & Platforms": [
         "Git & GitHub",
@@ -56,6 +81,8 @@ class SkillsSection extends StatelessWidget {
         "Widget Testing",
         "Integration Testing",
         "Flutter DevTools",
+        "Jest",
+        "Mocha",
       ],
       "Other Skills": [
         "Clean Architecture",
@@ -67,46 +94,67 @@ class SkillsSection extends StatelessWidget {
         "Push Notifications (FCM)",
         "State Management (GetX, Bloc, Riverpod)",
         "Animations & Custom UI",
+        "Performance Optimization",
+        "Security Best Practices",
       ]
     };
 
-    return Container(
+    return Padding(
       padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Technical Skills",
-              style: Theme.of(context).textTheme.headlineSmall),
-          const SizedBox(height: 16),
-          ...categorizedSkills.entries.map(
-            (entry) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(entry.key,
-                        style: Theme.of(context).textTheme.titleMedium),
-                    const SizedBox(height: 8),
-                    Wrap(
-                      spacing: 8,
-                      runSpacing: 8,
-                      children: entry.value.map((skill) {
-                        return Chip(
-                          label: Text(skill),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(color: Colors.indigo.shade100),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ],
+      child: Card(
+        elevation: 0,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+        color: Theme.of(context).colorScheme.surface,
+        child: Padding(
+          padding: const EdgeInsets.all(32),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Technical Skills",
+                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurface,
+                  fontWeight: FontWeight.bold,
                 ),
-              );
-            },
-          )
-        ],
+              ),
+              const SizedBox(height: 24),
+              ...categorizedSkills.entries.map(
+                (entry) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          entry.key,
+                          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        Wrap(
+                          spacing: 10,
+                          runSpacing: 10,
+                          children: entry.value.map((skill) {
+                            return Chip(
+                              label: Text(skill),
+                              backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                              labelStyle: TextStyle(color: Theme.of(context).colorScheme.onSurface),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

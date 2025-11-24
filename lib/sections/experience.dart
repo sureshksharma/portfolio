@@ -9,118 +9,172 @@ class ExperienceSection extends StatelessWidget {
       {
         "company": "Daksh Infosoft Pvt Ltd",
         "location": "Jaipur, India",
-        "role": "Senior Flutter Developer",
-        "duration": "Oct 2023 – Present",
-        "tech": ["Flutter", "Firebase", "Node.js", "Figma", "REST APIs"],
+        "role": "Senior Software Developer",
+        "duration": "2023 – Present",
+        "tech": [
+          "Node.js",
+          "Flutter",
+          "AWS",
+          "Kafka",
+          "Message Queue",
+          "MySQL",
+          "MongoDB",
+          "REST APIs",
+          "GraphQL",
+          "WebSockets",
+          "VOIP",
+          "CPaaS"
+        ],
         "details": [
-          "Led the development of 15+ mobile apps, improving client delivery speed by 25%.",
-          "Built highly performant, scalable mobile and web apps using Flutter and Node.js.",
-          "Integrated FCM, Firebase Analytics, real-time data sync, and clean architecture.",
-          "Managed a cross-functional team of 5 developers, mentoring juniors and reviewing code.",
+          "Architected and led backend development for CPaaS solutions integrating WhatsApp, RCS, and SMS.",
+          "Built scalable Node.js microservices, managed cloud deployments on AWS, and implemented Kafka-based messaging systems.",
+          "Mentored junior developers and collaborated with cross-functional teams for product delivery.",
         ],
       },
       {
         "company": "National Informatics Centre (NIC)",
         "location": "Jaipur, India",
-        "role": "Flutter Developer (Contract)",
-        "duration": "Jun 2022 – Sep 2023",
-        "tech": ["Flutter", "Native Android", "SQLite", "REST APIs"],
+        "role": "Software Developer",
+        "duration": "2022 – 2023",
+        "tech": [
+          "Node.js",
+          "Express.js",
+          "MySQL",
+          "PostgreSQL",
+          "Cloud",
+          "Flutter",
+          "Android"
+        ],
         "details": [
-          "Developed 5+ e-Governance apps used by thousands of users daily.",
-          "Built scalable public-facing applications with authentication, maps, and offline storage.",
-          "Collaborated with government stakeholders to translate functional requirements into mobile solutions.",
+          "Developed robust backend APIs using Node.js and Express, integrated PostgreSQL databases, and deployed applications on Government Cloud Server.",
+          "Built real-time communication features and optimized system performance for high-traffic apps.",
         ],
       },
       {
         "company": "Axestrack Software Solutions Pvt Ltd",
         "location": "Jaipur, India",
-        "role": "Flutter Developer",
-        "duration": "Nov 2020 – May 2022",
-        "tech": ["Flutter", "Firebase", "GPS APIs", "Hive"],
+        "role": "Software Developer",
+        "duration": "2020 – 2022",
+        "tech": ["Flutter", "Firebase", "REST APIs", "Figma"],
         "details": [
-          "Created a fleet tracking app to manage logistics for over 10,000 vehicles.",
-          "Built custom maps, push notifications, and dynamic vehicle alerts system.",
-          "Maintained app stability with automated testing and in-field diagnostics logging.",
+          "Designed and developed cross-platform mobile apps with Flutter for healthcare, education, and retail clients.",
+          "Implemented custom UI, state management, and integrated RESTful APIs for seamless user experiences.",
         ],
       },
     ];
 
-    return Container(
-      padding: const EdgeInsets.all(24),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text("Professional Experience",
-              style: Theme.of(context).textTheme.headlineSmall),
-          const SizedBox(height: 24),
-          ...experienceList.map(
-            (exp) => Padding(
-              padding: const EdgeInsets.only(bottom: 24.0),
-              child: Card(
-                elevation: 3,
-                shadowColor: Colors.indigo.shade50,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12)),
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text('${exp["role"]!}',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleLarge
-                              ?.copyWith(fontWeight: FontWeight.bold)),
-                      Text("${exp["company"]} • ${exp["location"]}",
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium
-                              ?.copyWith(color: Colors.grey[700])),
-                      Text('${exp["duration"]!}',
-                          style: const TextStyle(color: Colors.grey)),
-                      const SizedBox(height: 12),
-                      Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: (exp["tech"] as List<String>).map((tech) {
-                          return Chip(
-                            label: Text(tech),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: Colors.indigo.shade100),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                      const SizedBox(height: 12),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:
-                            (exp["details"] as List<String>).map((bullet) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 4),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.only(top: 6),
-                                  child: Icon(Icons.check_circle_outline,
-                                      size: 16, color: Colors.indigo),
-                                ),
-                                const SizedBox(width: 8),
-                                Expanded(child: Text(bullet)),
-                              ],
-                            ),
-                          );
-                        }).toList(),
-                      )
-                    ],
+    return Card(
+      color: Theme.of(context).colorScheme.surface,
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+      child: Padding(
+        padding: const EdgeInsets.all(32),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Professional Experience',
+              style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontWeight: FontWeight.bold,
                   ),
-                ),
-              ),
             ),
-          ),
-        ],
+            const SizedBox(height: 24),
+            ...experienceList.map((exp) => Padding(
+                  padding: const EdgeInsets.only(bottom: 32),
+                  child: Card(
+                    color:
+                        Theme.of(context).colorScheme.surfaceContainerHighest,
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            exp['role'] as String,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  color: Theme.of(context).colorScheme.primary,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            '${exp["company"]} • ${exp["location"]}',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .onSurfaceVariant,
+                                ),
+                          ),
+                          const SizedBox(height: 6),
+                          Text(
+                            exp['duration'] as String,
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Theme.of(context)
+                                  .colorScheme
+                                  .onSurfaceVariant,
+                            ),
+                          ),
+                          const SizedBox(height: 12),
+                          Wrap(
+                            spacing: 10,
+                            runSpacing: 10,
+                            children: (exp['tech'] as List<String>).map((tech) {
+                              return Chip(
+                                label: Text(tech),
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .surfaceContainerHighest,
+                                labelStyle: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onSurface),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                          const SizedBox(height: 12),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children:
+                                (exp['details'] as List<String>).map((bullet) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 4),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 6),
+                                      child: Icon(Icons.check_circle_outline,
+                                          size: 16, color: Colors.indigo),
+                                    ),
+                                    const SizedBox(width: 8),
+                                    Expanded(child: Text(bullet)),
+                                  ],
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ))
+          ],
+        ),
       ),
     );
   }
