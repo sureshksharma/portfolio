@@ -15,7 +15,7 @@ final ThemeData lightTheme = ThemeData(
   colorScheme: lightColorScheme,
   useMaterial3: true,
   textTheme: GoogleFonts.poppinsTextTheme(),
-  cardTheme: const CardTheme(
+  cardTheme: const CardThemeData(
     elevation: 0,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24))),
   ),
@@ -33,7 +33,7 @@ final ThemeData darkTheme = ThemeData(
   colorScheme: darkColorScheme,
   useMaterial3: true,
   textTheme: GoogleFonts.poppinsTextTheme(ThemeData.dark().textTheme),
-  cardTheme: const CardTheme(
+  cardTheme: const CardThemeData(
     elevation: 0,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(24))),
   ),
