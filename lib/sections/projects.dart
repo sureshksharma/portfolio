@@ -52,31 +52,6 @@ class _ProjectsSectionState extends State<ProjectsSection> {
         "tags": ["Backend", "Cloud", "CPaaS"]
       },
       {
-        "name": "Stamp Vendor Portal",
-        "desc":
-            "Digital stamp platform for 20K+ vendors. Designed and developed secure backend in Node.js, integrated MySQL for transactional data, and used AWS S3 for document storage. Implemented vendor management, reporting, and scalable REST APIs. Led backend and cloud architecture.",
-        "platform": "Android & Web",
-        "role": "Backend Lead & Cloud Architect",
-        "tech": [".NET Core", "PostgreSQL", "Flutter", "REST APIs"],
-        "planning":
-            "Collaborated with government officials to gather requirements, planned phased rollouts, and designed scalable database schemas.",
-        "challenges":
-            "Ensuring data security for sensitive transactions and scaling for thousands of concurrent users.",
-        "overcome":
-            "Implemented encrypted data storage, optimized queries, and used AWS S3 for reliable document management.",
-        "impact":
-            "Digitized stamp distribution, improved vendor efficiency, and reduced fraud by 60%.",
-        "image": null,
-        "links": {
-          "website": "https://apiepanjiyan.rajasthan.gov.in/stampvendorweb/",
-          "play":
-              "https://play.google.com/store/apps/details?id=com.rajasthan.epanjiyan",
-          "ios": null,
-          "devFlag": false
-        },
-        "tags": ["Mobile", "Retail"]
-      },
-      {
         "name": "PunyaSetu",
         "desc":
             "Spiritual & religious content platform. Developed Flutter frontend and Node.js backend, deployed on AWS. Implemented content management, user authentication, and scalable APIs. Led backend and mobile integration.",
@@ -119,7 +94,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           "website": null,
           "play":
               "https://play.google.com/store/apps/details?id=com.siddhimantra.com",
-          "ios": "https://apps.apple.com/in/app/punyasetu/id6683311967",
+          "ios": null,
           "devFlag": false
         },
         "tags": ["Mobile", "Spiritual", "Retail"]
@@ -148,49 +123,6 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           "devFlag": false
         },
         "tags": ["Mobile", "Healthcare", "Backend"]
-      },
-      {
-        "name": "Paramarsh+",
-        "desc":
-            "Doctor consultation platform with medical records. Designed Node.js backend for secure data storage, appointment scheduling, and real-time chat. Integrated Flutter mobile app and cloud deployment. Led backend and mobile integration.",
-        "platform": "Android & iOS",
-        "role": "Backend Designer & Mobile Integrator",
-        "tech": ["Node.js", "Flutter", "AWS", "MongoDB", "REST APIs"],
-        "planning":
-            "Defined patient-doctor workflows, planned chat and appointment modules, and set up cloud infrastructure for scalability.",
-        "challenges":
-            "Ensuring real-time chat reliability and secure medical record storage.",
-        "overcome":
-            "Used WebSockets for chat, encrypted medical records, and implemented automated backups.",
-        "impact":
-            "Enabled remote consultations, improved access to healthcare, and reduced missed appointments by 30%.",
-        "image": null,
-        "links": {"website": null, "play": null, "ios": null, "devFlag": true},
-        "tags": ["Mobile", "Healthcare"]
-      },
-      {
-        "name": "Gifzi",
-        "desc":
-            "Digital gifting and voucher platform. Designed Node.js backend, MongoDB database, and Flutter mobile frontend. Developed website for voucher management and redemption. Led backend, web, and mobile teams.",
-        "platform": "Android, Web",
-        "role": "Backend Lead & Web/Mobile Developer",
-        "tech": ["Node.js", "MongoDB", "Flutter", "React", "REST APIs"],
-        "planning":
-            "Worked with retailers to define voucher workflows, planned redemption logic, and set up analytics dashboards.",
-        "challenges":
-            "Preventing voucher fraud and scaling for high transaction volumes.",
-        "overcome":
-            "Implemented unique voucher codes, real-time validation, and scalable backend with MongoDB sharding.",
-        "impact":
-            "Processed 1M+ vouchers, reduced fraud by 70%, and improved retailer satisfaction.",
-        "image": null,
-        "links": {
-          "website": "https://www.gifzi.in",
-          "play": null,
-          "ios": null,
-          "devFlag": false
-        },
-        "tags": ["Mobile", "Retail", "Backend"]
       },
       {
         "name": "AirPhone Cloud Telephony",
@@ -271,6 +203,74 @@ class _ProjectsSectionState extends State<ProjectsSection> {
         },
         "tags": ["Education", "Mobile", "Backend"]
       },
+      {
+        "name": "Gifzi",
+        "desc":
+            "Digital gifting and voucher platform. Designed Node.js backend, MongoDB database, and Flutter mobile frontend. Developed website for voucher management and redemption. Led backend, web, and mobile teams.",
+        "platform": "Android, Web",
+        "role": "Backend Lead & Web/Mobile Developer",
+        "tech": ["Node.js", "MongoDB", "Flutter", "React", "REST APIs"],
+        "planning":
+            "Worked with retailers to define voucher workflows, planned redemption logic, and set up analytics dashboards.",
+        "challenges":
+            "Preventing voucher fraud and scaling for high transaction volumes.",
+        "overcome":
+            "Implemented unique voucher codes, real-time validation, and scalable backend with MongoDB sharding.",
+        "impact":
+            "Processed 1M+ vouchers, reduced fraud by 70%, and improved retailer satisfaction.",
+        "image": null,
+        "links": {
+          "website": "https://www.gifzi.in",
+          "play": null,
+          "ios": null,
+          "devFlag": false
+        },
+        "tags": ["Mobile", "Retail", "Backend"]
+      },
+      {
+        "name": "Stamp Vendor Portal",
+        "desc":
+            "Digital stamp platform for 20K+ vendors. Designed and developed secure backend in Node.js, integrated MySQL for transactional data, and used AWS S3 for document storage. Implemented vendor management, reporting, and scalable REST APIs. Led backend and cloud architecture.",
+        "platform": "Android & Web",
+        "role": "Backend Lead & Cloud Architect",
+        "tech": [".NET Core", "PostgreSQL", "Flutter", "REST APIs"],
+        "planning":
+            "Collaborated with government officials to gather requirements, planned phased rollouts, and designed scalable database schemas.",
+        "challenges":
+            "Ensuring data security for sensitive transactions and scaling for thousands of concurrent users.",
+        "overcome":
+            "Implemented encrypted data storage, optimized queries, and used AWS S3 for reliable document management.",
+        "impact":
+            "Digitized stamp distribution, improved vendor efficiency, and reduced fraud by 60%.",
+        "image": null,
+        "links": {
+          "website": "https://apiepanjiyan.rajasthan.gov.in/stampvendorweb/",
+          "play":
+              "https://play.google.com/store/apps/details?id=com.rajasthan.epanjiyan",
+          "ios": null,
+          "devFlag": false
+        },
+        "tags": ["Mobile", "Retail"]
+      },
+      {
+        "name": "Paramarsh+",
+        "desc":
+            "Doctor consultation platform with medical records. Designed Node.js backend for secure data storage, appointment scheduling, and real-time chat. Integrated Flutter mobile app and cloud deployment. Led backend and mobile integration.",
+        "platform": "Android & iOS",
+        "role": "Backend Designer & Mobile Integrator",
+        "tech": ["Node.js", "Flutter", "AWS", "MongoDB", "REST APIs"],
+        "planning":
+            "Defined patient-doctor workflows, planned chat and appointment modules, and set up cloud infrastructure for scalability.",
+        "challenges":
+            "Ensuring real-time chat reliability and secure medical record storage.",
+        "overcome":
+            "Used WebSockets for chat, encrypted medical records, and implemented automated backups.",
+        "impact":
+            "Enabled remote consultations, improved access to healthcare, and reduced missed appointments by 30%.",
+        "image": null,
+        "links": {"website": null, "play": null, "ios": null, "devFlag": true},
+        "tags": ["Mobile", "Healthcare"]
+      }
     ];
 
     // initialize visibility map
