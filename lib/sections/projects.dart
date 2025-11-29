@@ -14,8 +14,8 @@ class _ProjectsSectionState extends State<ProjectsSection> {
     'All',
     'Mobile',
     'Backend',
-    'Cloud',
     'CPaaS',
+    'Spiritual',
     'Healthcare',
     'Education',
     'Retail'
@@ -31,9 +31,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
         "name": "CPaaS Communication Suite",
         "desc":
             "End-to-end Communication Platform integrating WhatsApp Business API, RCS, SMS, and Email. Architected and led backend development using Node.js microservices, Kafka for message queues, and AWS (EC2, Lambda, S3) for cloud deployment. Implemented real-time analytics, user management, and secure message delivery. Led a team of 4 engineers and collaborated with product managers.",
-        // example hero image (replace with your own asset or image)
-        "image":
-            "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=1a9b9a0b4f9a7b2f4f6e",
+        "image": null,
         "platform": "Web, Android, iOS, Cloud",
         "role": "Lead Backend Architect & Full-stack Developer",
         "tech": ["Node.js", "Kafka", "AWS", "Flutter", "MongoDB", "REST APIs"],
@@ -68,8 +66,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Implemented encrypted data storage, optimized queries, and used AWS S3 for reliable document management.",
         "impact":
             "Digitized stamp distribution, improved vendor efficiency, and reduced fraud by 60%.",
-        "image":
-            "https://images.unsplash.com/photo-1559526324-593bc073d938?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=0f0b6b2b3e6d0f1d4e7f",
+        "image": null,
         "links": {
           "website": "https://apiepanjiyan.rajasthan.gov.in/stampvendorweb/",
           "play":
@@ -77,7 +74,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           "ios": null,
           "devFlag": false
         },
-        "tags": ["Backend", "Cloud", "Retail"]
+        "tags": ["Mobile", "Retail"]
       },
       {
         "name": "PunyaSetu",
@@ -94,8 +91,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Used AWS for scalable storage, optimized media delivery, and implemented responsive UI in Flutter.",
         "impact":
             "Reached 100K+ users, enabled easy access to spiritual content, and improved engagement by 40%.",
-        "image":
-            "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=7b7d8b2a6be5a3d2e7c5",
+        "image": null,
         "links": {
           "website": null,
           "play":
@@ -103,7 +99,30 @@ class _ProjectsSectionState extends State<ProjectsSection> {
           "ios": "https://apps.apple.com/in/app/punyasetu/id6683311967",
           "devFlag": false
         },
-        "tags": ["Mobile", "Backend"]
+        "tags": ["Mobile", "Backend", "Spiritual", "Retail"]
+      },
+      {
+        "name": "Siddhi Mantra",
+        "desc":
+            "Spiritual & religious content platform. Developed Flutter. Led project development.",
+        "platform": "Android & iOS",
+        "role": "Full-stack Developer & Backend Designer",
+        "tech": ["Flutter", "PHP", "AWS", "REST APIs"],
+        "planning":
+            "Worked with religious organizations to define content workflows, planned user engagement features, and set up CI/CD for rapid updates.",
+        "challenges": "Ensuring seamless user experience.",
+        "overcome":
+            "Implemented virtual temple experience using animated and responsive UI in Flutter.",
+        "impact": "Reached 10K+ users.",
+        "image": null,
+        "links": {
+          "website": null,
+          "play":
+              "https://play.google.com/store/apps/details?id=com.siddhimantra.com",
+          "ios": "https://apps.apple.com/in/app/punyasetu/id6683311967",
+          "devFlag": false
+        },
+        "tags": ["Mobile", "Spiritual", "Retail"]
       },
       {
         "name": "JHW Healthcare",
@@ -120,8 +139,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Used encrypted data storage, implemented OAuth2 authentication, and automated compliance checks.",
         "impact":
             "Streamlined insurance claims, reduced processing time by 50%, and improved patient satisfaction.",
-        "image":
-            "https://images.unsplash.com/photo-1586773860412-8d6c2da3f4f1?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=09f5c9f599c3b8e5a6d4",
+        "image": null,
         "links": {
           "website": null,
           "play": null,
@@ -146,8 +164,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Used WebSockets for chat, encrypted medical records, and implemented automated backups.",
         "impact":
             "Enabled remote consultations, improved access to healthcare, and reduced missed appointments by 30%.",
-        "image":
-            "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=7fb2d9b6f8c7d2a1e3a9",
+        "image": null,
         "links": {"website": null, "play": null, "ios": null, "devFlag": true},
         "tags": ["Mobile", "Healthcare"]
       },
@@ -166,8 +183,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Implemented unique voucher codes, real-time validation, and scalable backend with MongoDB sharding.",
         "impact":
             "Processed 1M+ vouchers, reduced fraud by 70%, and improved retailer satisfaction.",
-        "image":
-            "https://images.unsplash.com/photo-1526045612212-70caf35c14df?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=3a7a2f8f7d9c6b3e4c1b",
+        "image": null,
         "links": {
           "website": "https://www.gifzi.in",
           "play": null,
@@ -191,15 +207,14 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Used Express.js for API management, implemented fallback logic, and set up global monitoring.",
         "impact":
             "Enabled scalable cloud telephony, reduced call drop rates by 40%, and improved user experience.",
-        "image":
-            "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=9a2d3b4c5d6e7f8a9b0c",
+        "image": null,
         "links": {
           "website": null,
           "play": null,
           "ios": "https://apps.apple.com/in/app/airson/id6475618479",
           "devFlag": true
         },
-        "tags": ["Cloud", "CPaaS", "Backend"]
+        "tags": ["Mobile", "Cloud", "CPaaS", "Backend"]
       },
       {
         "name": "Trackurate Fleet Management",
@@ -216,6 +231,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Used WebSockets for real-time updates, optimized geospatial queries, and automated deployments with CI/CD.",
         "impact":
             "Improved fleet visibility, reduced operational costs by 25%, and enabled real-time alerts.",
+        "image": null,
         "links": {
           "website": null,
           "play": "https://play.google.com/store/apps/details?id=gold.fvts.in",
@@ -245,6 +261,7 @@ class _ProjectsSectionState extends State<ProjectsSection> {
             "Used secure REST APIs, implemented load balancing, and automated exam result processing.",
         "impact":
             "Enabled remote learning, improved exam participation by 50%, and streamlined payment collection.",
+        "image": null,
         "links": {
           "website": null,
           "play":
@@ -641,6 +658,15 @@ class _ProjectsSectionState extends State<ProjectsSection> {
                                                 Uri.parse(
                                                     links['play'] as String)),
                                             icon: const Icon(Icons.android),
+                                          ),
+                                        const SizedBox(width: 8),
+                                        if (links['ios'] != null)
+                                          IconButton(
+                                            tooltip: 'iOS Store',
+                                            onPressed: () => launchUrl(
+                                                Uri.parse(
+                                                    links['ios'] as String)),
+                                            icon: const Icon(Icons.apple),
                                           ),
                                         if (links['website'] != null)
                                           IconButton(
